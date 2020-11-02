@@ -14,7 +14,7 @@ import axios from 'axios'
 function Home() {
   const [country, setCountry] = useState('worldwide');
   const [casesType, setCasesType] = useState('cases');
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80764, lng: -40.4796 });
+  const [mapCenter, setMapCenter] = useState({ lat: 51.505, lng:  -0.09});
   const [mapZoom, setMapZoom] = useState(2);
   const [mapCountries, setMapCountries] = useState([]);
 
@@ -37,10 +37,25 @@ useEffect(()=>{
 
 const fetchCountry2 =async (countryCode)=>{
   try {
-      const data=await axios.get(`/getCountriesData/${countryCode}`);
+   await axios.get(`/getCountriesData/${countryCode}`).then(res => {
+      
 
-   
-      return (data.data)
+      // console.log(res.data)
+      // setCountry(countryCode)
+      // setMapCenter([res.data.countryInfo.lat, res.data.countryInfo.long]);
+      // setMapZoom(4)
+       return setMapCenter([res.data.countryInfo.lat, res.data.countryInfo.long]);
+      }).then(()=>{
+        return setCountry(countryCode)
+      }).then(()=>{
+        return setMapZoom(4)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+     
+       
+
   } catch (error) {
       console.log(error)
   }
@@ -49,11 +64,10 @@ const fetchCountry2 =async (countryCode)=>{
   const handleCountryChange = async (event) => {
     const countryCode = event
     console.log('YOOOO >>>>', countryCode);
-    const data= await fetchCountry2(countryCode);
-    console.log(data)
-    setCountry(countryCode);
-    setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-    setMapZoom(4)
+    
+
+    await fetchCountry2(countryCode);
+  
      
     
     // console.log(countryCode)
