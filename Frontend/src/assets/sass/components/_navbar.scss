@@ -1,0 +1,117 @@
+/**
+ * Navbar Component
+ *
+ */
+
+// @import '../base/base-index';
+
+.navbar {
+    background-color: $primary-color;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 9;
+}
+
+.menu-bars {
+    width: 40px;
+    height: 40px;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        border-radius: 50%;
+        transition: box-shadow 0.3s;
+        box-shadow: 0 0 0 1px $white-color;
+        padding: 5px;
+    }
+}
+
+.nav-menu {
+    background-color: $primary-color;
+    // opacity: 0.5;
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    // null z-index
+    z-index: 10;
+    justify-content: space-between;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms;
+    box-shadow: 0px 10px 24px $black-color;
+}
+
+.nav-menu.active {
+    left: 0;
+    transition: 350ms;
+}
+
+.nav-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    height: 60px;
+    font-family: $font-family-primary;
+    letter-spacing: $letter-spacing-primary;
+
+    a {
+        text-decoration: none;
+        color: $white-color;
+        font-size: $font-size-h3;
+        width: 95%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        border-radius: 0px;
+
+        &:hover {
+            // background-color: $blue-sea-color;
+            color: $white-color;
+            transition: box-shadow 0.3s;
+            box-shadow: 0 0 0 1px $blue-sea-color;
+            // box-shadow: 0px 8px 24px $blue-sea-color;
+        }
+    }
+}
+
+.nav-menu-items {
+    width: 100%;
+    padding: 30px;
+}
+
+.navbar-toggle {
+    background-color: $primary-color;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+span {
+    margin-left: 16px;
+}
+
+.footer {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px 0 30px;
+
+    .footer__organization {
+        font-size: $font-size-h5;
+        text-align: center;
+    }
+}
