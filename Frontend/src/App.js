@@ -6,7 +6,7 @@ import axios from "axios";
 // IMPORT COMPONENTS
 import Navbar from './components/Navbar';
 import { Scale } from 'styled-loaders-react';
-import Panel from './components/Panel';
+//import Panel from './components/Panel';
 
 
 // IMPORT PAGES
