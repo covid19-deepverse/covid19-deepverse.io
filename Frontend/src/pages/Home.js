@@ -35,23 +35,31 @@ useEffect(()=>{
    fetchAPI();
 },[setMapCountries])
 
-  
+const fetchCountry2 =async (countryCode)=>{
+  try {
+      const data=await axios.get(`/getCountriesData/${countryCode}`);
+
+   
+      return (data.data)
+  } catch (error) {
+      console.log(error)
+  }
+} 
 
   const handleCountryChange = async (event) => {
     const countryCode = event
     console.log('YOOOO >>>>', countryCode);
-  // countryCode === 'worldwide'
-    //     ? 'https://disease.sh/v3/covid-19/countries'
-    //     : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
-
-    // await fetch(url)
-    //   .then((response) => response.json())
-    //   .then((data) => {
+    const data= await fetchCountry2(countryCode);
+    console.log(data)
     setCountry(countryCode);
+    setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+    setMapZoom(4)
+     
+    
     // console.log(countryCode)
 
       
-      // });
+      
 
     // https://disease.sh/v3/covid-19/all
   };
@@ -63,7 +71,8 @@ useEffect(()=>{
        casesType={casesType}
           countries={mapCountries}
           center={mapCenter}
-          zoom={mapZoom} /> 
+          zoom={mapZoom} >
+            </MapView> 
       <SelectCountry handleCountryChange={handleCountryChange} country={country}/> 
       
     </div>
