@@ -14,7 +14,9 @@ import axios from 'axios';
 function Home() {
   const [country, setCountry] = useState('worldwide');
   const [casesType, setCasesType] = useState('cases');
-  const [mapCenter, setMapCenter] = useState({ lat: 51.505, lng: -0.09 });
+
+  const [mapCenter, setMapCenter] = useState({ lat: 51.505, lng:  -0.09});
+
   const [mapZoom, setMapZoom] = useState(2);
   const [mapCountries, setMapCountries] = useState([]);
 
@@ -35,24 +37,47 @@ function Home() {
     fetchAPI();
   }, [setMapCountries]);
 
-  const fetchCountry2 = async (countryCode) => {
-    try {
-      const data = await axios.get(`/getCountriesData/${countryCode}`);
 
-      return data.data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const fetchCountry2 =async (countryCode)=>{
+  try {
+   await axios.get(`/getCountriesData/${countryCode}`).then(res => {
+      
+
+      // console.log(res.data)
+      // setCountry(countryCode)
+      // setMapCenter([res.data.countryInfo.lat, res.data.countryInfo.long]);
+      // setMapZoom(4)
+      console.log(res.data.countryInfo.lat, res.data.countryInfo.long)
+       return setMapCenter([res.data.countryInfo.lat, res.data.countryInfo.long]);
+      }).then(()=>{
+        return setCountry(countryCode)
+      }).then(()=>{
+        return setMapZoom(4)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+     
+       
+
+  } catch (error) {
+      console.log(error)
+  }
+} 
+
 
   const handleCountryChange = async (event) => {
     const countryCode = event;
     console.log('YOOOO >>>>', countryCode);
-    const data = await fetchCountry2(countryCode);
-    console.log(data);
-    setCountry(countryCode);
-    setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-    setMapZoom(4);
+
+    
+
+    await fetchCountry2(countryCode);
+  
+     
+    
+    // console.log(countryCode)
+
 
     // console.log(countryCode)
 
@@ -62,6 +87,7 @@ function Home() {
   return (
     <div className="home">
       <Filters />
+
       <MapView
         casesType={casesType}
         countries={mapCountries}
@@ -73,6 +99,7 @@ function Home() {
         handleCountryChange={handleCountryChange}
         country={country}
       />
+
     </div>
   );
 }
