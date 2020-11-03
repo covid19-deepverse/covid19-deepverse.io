@@ -44,6 +44,7 @@ const fetchCountry2 =async (countryCode)=>{
       // setCountry(countryCode)
       // setMapCenter([res.data.countryInfo.lat, res.data.countryInfo.long]);
       // setMapZoom(4)
+      console.log(res.data.countryInfo.lat, res.data.countryInfo.long)
        return setMapCenter([res.data.countryInfo.lat, res.data.countryInfo.long]);
       }).then(()=>{
         return setCountry(countryCode)
@@ -82,7 +83,7 @@ const fetchCountry2 =async (countryCode)=>{
     <div className="home">
       <Filters />
        <MapView   
-       casesType={casesType}
+          casesType={casesType}
           countries={mapCountries}
           center={mapCenter}
           zoom={mapZoom} >
