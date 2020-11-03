@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { MenuItem, FormControl, Select } from '@material-ui/core';
-import '../assets/css/Select.css';
 import axios from 'axios';
 function SelectCountry({ handleCountryChange, country }) {
   const [countries, setCountries] = useState([]);
@@ -24,7 +23,7 @@ function SelectCountry({ handleCountryChange, country }) {
   return (
     <div className="app_left">
       <div className="app_header">
-        <FormControl className="app__dropdown">
+        <FormControl className="app_dropdown">
           <Select
             variant="outlined"
             onChange={(e) => handleCountryChange(e.target.value)}

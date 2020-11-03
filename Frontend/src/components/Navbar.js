@@ -19,7 +19,7 @@ function Navbar() {
             <HiIcons.HiOutlineMenuAlt1 onClick={showSidebar} />
           </Link>
           <Search />
-          <DonateBtn />
+          {/* <DonateBtn /> */}
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className="nav-menu-items" onClick={showSidebar}>
