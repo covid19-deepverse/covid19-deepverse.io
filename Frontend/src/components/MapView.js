@@ -14,6 +14,7 @@ function MapView({ countries, casesType, center, zoom }) {
         center={center}
         zoom={zoom}
         maxZoom={10}
+        minZoom={2}
         attributionControl={false}
         zoomControl={false}
         doubleClickZoom={true}
@@ -21,6 +22,7 @@ function MapView({ countries, casesType, center, zoom }) {
         dragging={true}
         animate={true}
         easeLinearity={0.35}
+        
       >
         <GeoJSON
           // attribution="&copy; credits due..."
