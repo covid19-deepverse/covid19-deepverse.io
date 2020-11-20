@@ -15,7 +15,7 @@ function Filters({handleCaseTypeChange}) {
         <div className="header__title__wrapper">TOP 10 Country</div>
       </div>
       <div className="commodities__list">
-        <div className="commodities__list_filter">
+        <div className="commodities__list_filter" >
           <IconContext.Provider
             value={{ color: '#EA5771', className: 'global-class-name' }}
           >
