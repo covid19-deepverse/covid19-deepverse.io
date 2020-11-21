@@ -2,7 +2,12 @@ import React from 'react';
 import { IconContext } from 'react-icons';
 import * as FiIcons from 'react-icons/fi';
 
-function Filters() {
+function Filters({handleCaseTypeChange}) {
+
+  const fetchilters=async (e)=>{
+    await handleCaseTypeChange(e)
+    // console.log(e+" is on clicked")
+  }
   return (
     <div className="left__container">
       <div className="header__left">
@@ -10,7 +15,7 @@ function Filters() {
         <div className="header__title__wrapper">TOP 10 Country</div>
       </div>
       <div className="commodities__list">
-        <div className="commodities__list_filter">
+        <div className="commodities__list_filter" >
           <IconContext.Provider
             value={{ color: '#EA5771', className: 'global-class-name' }}
           >
@@ -21,7 +26,8 @@ function Filters() {
 
           <div className="commodities_check--total--case">Total Case</div>
         </div>
-        <div className="commodities__list_filter">
+        <div className="commodities__list_filter" onClick={() => fetchilters("cases")}>
+          
           <IconContext.Provider
             value={{ color: '#50E3C2', className: 'global-class-name' }}
           >
@@ -32,7 +38,7 @@ function Filters() {
 
           <div className="commodities_check--active--case">Active Case</div>
         </div>
-        <div className="commodities__list_filter">
+        <div className="commodities__list_filter" onClick={() => fetchilters("deaths")}>
           <IconContext.Provider
             value={{ color: '#D22D36', className: 'global-class-name' }}
           >
@@ -43,7 +49,7 @@ function Filters() {
 
           <div className="commodities_check--deaths--case">Deaths Cases</div>
         </div>
-        <div className="commodities__list_filter">
+        <div className="commodities__list_filter" onClick={() => fetchilters("recovered")}>
           <IconContext.Provider
             value={{ color: '#039245', className: 'global-class-name' }}
           >

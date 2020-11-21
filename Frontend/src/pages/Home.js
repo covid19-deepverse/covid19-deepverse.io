@@ -83,10 +83,17 @@ const fetchCountry2 =async (countryCode)=>{
 
     // https://disease.sh/v3/covid-19/all
   };
+  const handleCaseTypeChange =async (event)=>{
+    
+    setCasesType(event);
 
+    console.log(event)
+  }
   return (
     <div className="home">
-      <Filters />
+      <Filters 
+       handleCaseTypeChange={handleCaseTypeChange}
+       />
 
       <MapView
         casesType={casesType}
