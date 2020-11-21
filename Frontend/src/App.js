@@ -18,6 +18,7 @@ import Statistics from './pages/Statistics';
 import Thailand from './pages/Thailand';
 import Blog from './pages/Blog';
 
+
 // IMPORT SCSS
 import './assets/sass/_main.scss';
 import 'leaflet/dist/leaflet.css';
