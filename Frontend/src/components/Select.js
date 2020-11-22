@@ -25,6 +25,7 @@ function SelectCountry({ handleCountryChange, country }) {
       <div className="app_header">
         <FormControl className="app_dropdown">
           <Select
+            class="select-style"
             variant="outlined"
             onChange={(e) => handleCountryChange(e.target.value)}
             value={country}
@@ -111,7 +112,27 @@ function SelectCountry({ handleCountryChange, country }) {
       />
       <div className="app_left-bottom">
         <h1 className="app_left-bottom-title">WORLD</h1>
+        <div className="table-total">
+          <p className="table-total-title">TOTAL CONFIRMED</p>
+          <p className="table-total-cases">29,929,612</p>
+        </div>
+        <div className="table-total">
+          <p className="table-total-title">TOTAL RECOVERED</p>
+          <p className="table-total-cases">21,468,194</p>
+        </div>
+        <div className="table-total">
+          <p className="table-total-title">TOTAL DEATHS</p>
+          <p className="table-total-cases">947,049</p>
+        </div>
       </div>
+      <hr
+        style={{
+          color: '#6D7F99',
+          backgroundColor: '#6D7F99',
+          height: 0.2,
+          borderColor: '#6D7F99',
+        }}
+      />
     </div>
   );
 }
