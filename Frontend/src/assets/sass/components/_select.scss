@@ -13,14 +13,22 @@
 }
 
 .app_header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid $blue-sea-color;
+  border: 1px solid $blue-sea-color;
+  border-radius: 5px;
   // border-radius: 2px;
   color: $white-color;
-  border: none;
+  //border: none;
+
+  .select-style {
+    color: $blue-sea-color;
+    font-size: $font-size-h4;
+  }
 }
+
 
 .app_left-top {
   width: 100%;
@@ -35,6 +43,7 @@
   font-size: $font-size-h3;
   color: $blue-sea-color;
   padding: 20px 0 20px 0;
+  font-weight: $font-weight-primary;
 }
 
 #select-country {
@@ -43,15 +52,39 @@
 
 .app_left-bottom {
   width: 100%;
-  height: 40%;
+  padding: 10px 0 20px 0;
+
+  .app_left-bottom-title {
+    font-size: $font-size-h3;
+    color: $blue-sea-color;
+    padding: 20px 0 20px 0;
+    font-weight: $font-weight-primary;
+  }
+
+  .table-total {
+    padding: 10px 0 10px 0;
+
+    .table-total-title {
+      margin-top: 10px;
+      margin-right: 14px;
+      color: $secondary-color;
+      font-size: $font-size-h3;
+      //font-weight: $font-weight-primary;
+      margin-bottom: 10px;
+    }
+
+    .table-total-cases {
+
+      margin-right: 14px;
+      color: $white-color;
+      font-size: $font-size-h2;
+      font-weight: $font-weight-primary;
+    }
+  }
+
+  
 }
 
-
-.app_left-bottom-title {
-  font-size: $font-size-h3;
-  color: $blue-sea-color;
-  padding: 20px 0 20px 0;
-}
 
 .table-ranks,
 .table-rank1 {
