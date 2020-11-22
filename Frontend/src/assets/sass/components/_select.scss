@@ -9,6 +9,7 @@
   height: 100%;
   flex-direction: column;
   position: relative;
+  padding: 10px;
 }
 
 .app_header {
@@ -21,6 +22,83 @@
   border: none;
 }
 
+.app_left-top {
+  width: 100%;
+  padding: 10px 0 20px 0;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+
+}
+
+.app_left-top-title {
+  font-size: $font-size-h3;
+  color: $blue-sea-color;
+  padding: 20px 0 20px 0;
+}
+
 #select-country {
   border-color: aquamarine;
+}
+
+.app_left-bottom {
+  width: 100%;
+  height: 40%;
+}
+
+
+.app_left-bottom-title {
+  font-size: $font-size-h3;
+  color: $blue-sea-color;
+  padding: 20px 0 20px 0;
+}
+
+.table-ranks,
+.table-rank1 {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  position: relative;
+
+  .number,
+  .country-name,
+  .cases-percent {
+    color:$white-color;
+  }
+
+  .number {
+    margin-right: 14px;
+    color: $secondary-color;
+    font-size: $font-size-h4;
+  }
+  .country-name1 {
+    margin-right: 14px;
+    color: $white-color;
+    font-size: $font-size-h3;
+    font-weight: $font-weight-primary;
+  }
+
+  .country-name {
+    margin-right: 14px;
+    color: $white-color;
+    font-size: $font-size-h4;
+  }
+
+  .cases-percent {
+    text-align: right;
+    color: $white-color;
+    font-size: $font-size-h4;
+    right: 0;
+    position: absolute;
+  }
+  .cases-percent1 {
+    margin-top: 10px;
+    margin-right: 14px;
+    color: $secondary-color;
+    font-size: $font-size-h3;
+  }
+
+
+
 }
