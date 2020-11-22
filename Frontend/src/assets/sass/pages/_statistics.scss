@@ -5,14 +5,87 @@
 
 .statistics {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    color: $white-color;
+    // width: 100%;
+    // top: 0;
+    // left: 0;
+    // color: $white-color;
     // align-items: center;
     // height: 100%;
     // width: 90%;
-    font-size: $font-size-h1;
-    letter-spacing: $letter-spacing-primary;
+    // font-size: $font-size-h1;
+    // letter-spacing: $letter-spacing-primary;
+
+
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+
+        .section1-title {
+            font-size: 32px;
+            color: $white-color;
+            font-weight: $font-weight-primary;
+            padding: 30px;
+            letter-spacing: $letter-spacing-secondary;
+
+        }
+
+
+        .section1-row1,
+        .section1-row2 {
+            display: flex;
+            flex-direction: row;
+
+            .row1-total-cases {
+                width: 30%;
+                margin: 20px 25px;
+                padding: 30px;
+                // border: 1px solid $blue-sea-color;
+                border-radius: 15px;
+                background: #121429;
+                box-shadow: 20px 20px 60px #0c0d1b,
+                -20px -20px 60px #181b37;
+                
+                // border-radius: 60px;
+                text-align: center;
+
+                .total-cases-numbers,
+                .deaths-numbers,
+                .active-cases-numbers,
+                .fatality-rate-numbers,
+                .recoveries-numbers,
+                .recovery-rate-numbers {
+                    font-size: $font-size-h1;
+                    color: $white-color;
+                    font-weight: $font-weight-primary;
+                    padding: 5px;
+                    letter-spacing: $letter-spacing-primary;
+
+                }
+
+                .total-cases-title,
+                .deaths-title,
+                .active-cases-title,
+                .fatality-rate-title,
+                .recoveries-title,
+                .recovery-rate-title {
+                    font-size: $font-size-h3;
+                    color: $secondary-color;
+                    font-weight: $font-weight-secondary;
+                    padding: 5px;
+                    letter-spacing: $letter-spacing-primary;
+                    
+                }
+            }
+
+
+        }
+    }
+
+
+
 }
