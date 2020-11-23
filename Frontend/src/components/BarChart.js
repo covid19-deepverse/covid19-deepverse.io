@@ -2,31 +2,29 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 const BarChart = ({ data: { confirmed, recovered, deaths }, country }) => {
   const Data = {
-    labels: ['Infected', 'Recovered', 'Deaths'],
+    labels: ['Countries cases distribution'],
     datasets: [
       {
-        labels: 'Infected',
+        label: 'Infected',
         backgroundColor: [
           'rgba(234, 87, 113, 1)',
-          'rgba(80, 227, 194, 1)',
-          'rgba(210, 45, 54, 1)',
+          
         ],
         data: [confirmed.value],
       },
       {
-        labels: 'Recovered',
+        label: 'Recovered',
         backgroundColor: [
-          'rgba(234, 87, 113, 1)',
+       
           'rgba(80, 227, 194, 1)',
-          'rgba(210, 45, 54, 1)',
+        
         ],
         data: [recovered.value],
       },
       {
-        labels: 'Deaths',
+        label: 'Deaths',
         backgroundColor: [
-          'rgba(234, 87, 113, 1)',
-          'rgba(80, 227, 194, 1)',
+        
           'rgba(210, 45, 54, 1)',
         ],
         data: [deaths.value],

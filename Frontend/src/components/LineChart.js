@@ -35,14 +35,6 @@ const LineChart = ({ data: { confirmed, recovered, deaths }, country }) => {
         pointBorderColor: 'rgba(234, 87, 113, 1)',
       },
       {
-        data: dailyData.map(({ recovered }) => recovered),
-        label: 'Recovered',
-        borderColor: ['rgba(80, 227, 194, 1)'],
-        backgroundColor: ['rgba(80, 227, 194, 1)'],
-        pointBackgroundColor: 'rgba(80, 227, 194, 1)',
-        pointBorderColor: 'rgba(80, 227, 194, 1)',
-      },
-      {
         label: 'Deaths',
         data: dailyData.map(({ deaths }) => deaths),
         borderColor: ['rgba(210, 45, 54, 1)'],
