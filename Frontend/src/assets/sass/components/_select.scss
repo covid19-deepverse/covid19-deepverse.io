@@ -5,11 +5,15 @@
 
 
 .app_left {
-  width: 340px;
-  height: 100%;
-  flex-direction: column;
-  position: relative;
+  width: 450px;
+   height: 100%;
+//   flex-direction: column;
+//   position: relative;
   padding: 10px;
+background-color:$primary-color !important;
+// display: flex;
+display: flex;
+flex-direction: column;
 }
 
 .app_header {
@@ -61,26 +65,26 @@
     font-weight: $font-weight-primary;
   }
 
-  .table-total {
-    padding: 10px 0 10px 0;
+  // .table-total {
+  //   padding: 10px 0 10px 0;
 
-    .table-total-title {
-      margin-top: 10px;
-      margin-right: 14px;
-      color: $secondary-color;
-      font-size: $font-size-h3;
-      //font-weight: $font-weight-primary;
-      margin-bottom: 10px;
-    }
+  //   .table-total-title {
+  //     margin-top: 10px;
+  //     margin-right: 14px;
+  //     color: $secondary-color;
+  //     font-size: $font-size-h3;
+  //     //font-weight: $font-weight-primary;
+  //     margin-bottom: 10px;
+  //   }
 
-    .table-total-cases {
+  //   .table-total-cases {
 
-      margin-right: 14px;
-      color: $white-color;
-      font-size: $font-size-h2;
-      font-weight: $font-weight-primary;
-    }
-  }
+  //     margin-right: 14px;
+  //     color: $white-color;
+  //     font-size: $font-size-h2;
+  //     font-weight: $font-weight-primary;
+  //   }
+  // }
 
   
 }

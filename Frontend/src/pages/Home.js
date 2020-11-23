@@ -19,12 +19,24 @@ function Home() {
 
   const [mapZoom, setMapZoom] = useState(2);
   const [mapCountries, setMapCountries] = useState([]);
+  const [tableData, setTableData] = useState([]);
 
+  const [countryData, setcountryData] = useState([]);
+
+  const fetchCountryData=async()=>{
+    try {
+      const data= await axios.get('/getCountry')
+      return data.data;
+    } catch (error) {
+      console.log(error)
+    }
+  }
   const fetchCountry = async () => {
     try {
       const data = await axios.get('/getCountriesData');
-
-      console.log(data.data);
+      
+      // console.log("data: "+data.data);
+      
       return data.data;
     } catch (error) {
       console.log(error);
@@ -33,9 +45,15 @@ function Home() {
   useEffect(() => {
     const fetchAPI = async () => {
       setMapCountries(await fetchCountry());
+      setcountryData(await fetchCountryData())
+      const sortedData = sortData(await fetchCountry());
+      setTableData(sortedData);
     };
     fetchAPI();
   }, [setMapCountries]);
+
+
+  
 
 
 const fetchCountry2 =async (countryCode)=>{
@@ -105,6 +123,8 @@ const fetchCountry2 =async (countryCode)=>{
         className="select-country"
         handleCountryChange={handleCountryChange}
         country={country}
+        countriesData={tableData}
+        // countryData={countryData}
       />
 
     </div>

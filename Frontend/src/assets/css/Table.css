@@ -1,0 +1,32 @@
+.table {
+  margin-top: 15px;
+  overflow: scroll;
+  height: 400px;
+  color: #ffffff;
+}
+
+.table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table td {
+  padding: 0.5rem;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color: #aaaaaa !important;;
+}
+.country-name {
+  margin-right: 14px;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.cases-percent {
+ 
+  color: #FFFFFF;
+  font-size: 11px;
+  right: 0;
+  /* position: absolute; */
+}

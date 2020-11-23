@@ -50,6 +50,28 @@ app.get('/getCountry/:country', (req, res) => {
         })
    
   })
+  app.get('/getCountrydata', (req, res) => {
+    // var country=req.params.country
+    let changeableUrl=url;
+  
+        changeableUrl=`${url}/countries`
+ 
+      request(changeableUrl,
+        function(error,response,body){
+            if(!error && response.statusCode ==200){
+                var parsedBody=JSON.parse(body)
+                const modifiedData={
+                    confirmed:parsedBody.confirmed,
+                    recovered:parsedBody.recovered,
+                    deaths:parsedBody.deaths,
+                    lastUpdate:parsedBody.lastUpdate
+                }
+        
+            res.send(modifiedData)
+            }
+        })
+   
+  })
 
   app.get('/daily', (req, res) => {
    
