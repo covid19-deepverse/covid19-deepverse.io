@@ -10,6 +10,40 @@
   flex-direction: column;
   position: relative;
   padding: 10px;
+
+  .loading-data {
+    display: flex;
+    flex-direction: row;
+    // justify-content: start;
+    // align-items: start;
+    width: 100%;
+    position: relative;
+
+    .loading-data-gif {
+      // width: 20px;
+      // height: 20px;
+      // position: absolute;
+      // display: flex;
+      // justify-content: center;
+      // top: 0;
+      // left: 0;
+      // margin: 0 0 0 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loading-data-title {
+      display: flex;
+      align-items: center;
+      font-size: $font-size-h4;
+      width: 100%;
+      text-align: right;
+
+    }
+  }
 }
 
 .app_header {
@@ -23,9 +57,8 @@
   color: $white-color;
   //border: none;
 
-  .select-style {
+  .app_dropdown {
     color: $blue-sea-color;
-    font-size: $font-size-h4;
   }
 }
 

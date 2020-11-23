@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MenuItem, FormControl, Select } from '@material-ui/core';
+import { Scale } from 'styled-loaders-react';
 import axios from 'axios';
 function SelectCountry({ handleCountryChange, country }) {
   const [countries, setCountries] = useState([]);
@@ -22,10 +23,9 @@ function SelectCountry({ handleCountryChange, country }) {
 
   return (
     <div className="app_left">
-      <div className="app_header">
+      {/* <div className="app_header">
         <FormControl className="app_dropdown">
           <Select
-            class="select-style"
             variant="outlined"
             onChange={(e) => handleCountryChange(e.target.value)}
             value={country}
@@ -36,6 +36,12 @@ function SelectCountry({ handleCountryChange, country }) {
             ))}
           </Select>
         </FormControl>
+      </div> */}
+      <div className="loading-data">
+        <div className="loading-data-gif">
+          <Scale color="#50E3C2" size="20px" duration="3s" />
+        </div>
+        <p className="loading-data-title">LAST UPDATED : 2020-11-23 12:24:08</p>
       </div>
       <hr
         style={{

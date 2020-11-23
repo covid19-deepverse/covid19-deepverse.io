@@ -6,6 +6,7 @@ import { IconContext } from 'react-icons';
 import Search from './Search';
 // import DonateBtn from './DonateBnt';
 import Settings from './Settings';
+import { Scale } from 'styled-loaders-react';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
