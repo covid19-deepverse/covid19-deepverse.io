@@ -4,7 +4,7 @@ import * as HiIcons from 'react-icons/hi';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
 import Search from './Search';
-import DonateBtn from './DonateBnt';
+// import DonateBtn from './DonateBnt';
 import Settings from './Settings';
 
 function Navbar() {

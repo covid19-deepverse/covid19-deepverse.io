@@ -74,8 +74,17 @@ class Statistics extends React.Component {
           </div>
         </div>
         <div className="section2">
-          <div></div>
-          <div></div>
+          <div className="section2-title">NEW CASES</div>
+          <div className="section2-graph">
+            <div className="section2-graph-chart">
+              <CountryPicker handleCountryChange={this.handleCountryChange} />
+              {country ? (
+                <BarChart data={data} country={country} />
+              ) : (
+                <LineChart data={data} country={country} />
+              )}
+            </div>
+          </div>
         </div>
         <div className="section3">
           <div></div>

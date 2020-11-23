@@ -5,13 +5,31 @@ const BarChart = ({ data: { confirmed, recovered, deaths }, country }) => {
     labels: ['Infected', 'Recovered', 'Deaths'],
     datasets: [
       {
-        label: 'People',
+        labels: 'Infected',
         backgroundColor: [
-          'rgba(255,0,0,0.5)',
-          'rgba(0,255,0,0.5)',
-          'rgba(0,0,255,0.5)',
+          'rgba(234, 87, 113, 1)',
+          'rgba(80, 227, 194, 1)',
+          'rgba(210, 45, 54, 1)',
         ],
-        data: [confirmed.value, recovered.value, deaths.value],
+        data: [confirmed.value],
+      },
+      {
+        labels: 'Recovered',
+        backgroundColor: [
+          'rgba(234, 87, 113, 1)',
+          'rgba(80, 227, 194, 1)',
+          'rgba(210, 45, 54, 1)',
+        ],
+        data: [recovered.value],
+      },
+      {
+        labels: 'Deaths',
+        backgroundColor: [
+          'rgba(234, 87, 113, 1)',
+          'rgba(80, 227, 194, 1)',
+          'rgba(210, 45, 54, 1)',
+        ],
+        data: [deaths.value],
       },
     ],
   };
