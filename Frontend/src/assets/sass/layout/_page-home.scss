@@ -22,7 +22,7 @@
 .about,
 .donate,
 .news,
-.statistics,
+// .statistics,
 .thailand,
 .blog {
     display: flex;
@@ -36,4 +36,14 @@
     font-size: $font-size-h1;
     letter-spacing: $letter-spacing-primary;
     // z-index: 1;
+}
+
+.blog-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
 }
