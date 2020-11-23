@@ -1,28 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { MenuItem, FormControl, Select } from '@material-ui/core';
+import { MenuItem, FormControl, Select, Card,CardContent, } from '@material-ui/core';
 import axios from 'axios';
-function SelectCountry({ handleCountryChange, country }) {
+import Table from './Table';
+import CardValue from './CardValue';
+function SelectCountry({ handleCountryChange, country,countriesData}) {
   const [countries, setCountries] = useState([]);
+  let [countryData, setcountryData] = useState([]);
+  let Data;
+let confirmed;
   const fetchCountry = async () => {
     try {
       const data = await axios.get('/getCountriesCode');
+  
+      
 
-      console.log(data.data);
+      // console.log(data.data);
       return data.data;
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(() => {
+  const fetchCountrydata = async () => {
+    try {
+      const fetchdata=await axios.get('/getCountry')
+      
+
+       console.log(fetchdata.data);
+      return fetchdata.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(async () => {
     const fetchAPI = async () => {
       setCountries(await fetchCountry());
+      Data=(await fetchCountrydata());
+       console.log("Confirmed: "+ Data.confirmed.value)
+      //  Data=Data.confirmed.value
+       confirmed=(Data.confirmed.value)
+      //  console.log(countryData)
     };
-    fetchAPI();
+    await fetchAPI();
+ 
+    
   }, [setCountries]);
 
   return (
-    <div className="app_left">
-      <div className="app_header">
+    <Card className="app_left">
+      <CardContent className="app_header">
         <FormControl className="app_dropdown">
           <Select
             class="select-style"
@@ -36,8 +62,25 @@ function SelectCountry({ handleCountryChange, country }) {
             ))}
           </Select>
         </FormControl>
-      </div>
+        
+      </CardContent>
       <hr
+        style={{
+          color: '#6D7F99',
+          backgroundColor: '#6D7F99',
+          height: 0.2,
+          borderColor: '#6D7F99',
+        }}
+      />
+
+        <h1 className="app_left-top-title">Live Cases by Country</h1>
+       {/* ตารางแสดงค่า แต่ละประเทศ */}
+      <Table countries={countriesData}/>
+           {/* โชว์ค่ารวมของโลก */}
+
+      <CardValue/>
+    {/*  */}
+      {/* <hr
         style={{
           color: '#6D7F99',
           backgroundColor: '#6D7F99',
@@ -132,8 +175,8 @@ function SelectCountry({ handleCountryChange, country }) {
           height: 0.2,
           borderColor: '#6D7F99',
         }}
-      />
-    </div>
+      /> */}
+    </Card>
   );
 }
 export default SelectCountry;
