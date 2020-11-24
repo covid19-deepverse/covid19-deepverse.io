@@ -124,15 +124,18 @@
             flex-direction: column;
             width: 50%;
             padding: 20px;
+            // border-radius: 15px;
+            // background: #121429;
+            // box-shadow: 20px 20px 60px #0c0d1b,
+            // -20px -20px 60px #181b37;
 
             .section3-title {
-                font-size: $font-size-h2;
+                font-size: $font-size-h1;
                 color: $white-color;
                 font-weight: $font-weight-primary;
-                padding: 30px;
+                padding: 40px 30px;
                 letter-spacing: $letter-spacing-secondary;
                 text-transform: $text-transform;
-
             }
 
             .countries_stat {
@@ -145,20 +148,30 @@
                 /* flex-direction: row; */
                 /* background: #fff; */
                 /* box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.1); */
+                padding: 0 20px 20px 20px;
+                margin: 0 20px 0 20px;
                 overflow: scroll;
-                height: 300px;
+                height: 750px;
+                z-index: 1;
+                border-radius: 15px;
+                background: #121429;
+                box-shadow: 20px 20px 60px #0c0d1b,
+                -20px -20px 60px #181b37;
+
                 .countries_stat-table {
-                    opacity: 0.8;
-                    color: $white-color;
-                    font-weight: bold;
+                    color: $blue-sea-color;
+                    font-size: $font-size-h3;
+                    font-weight: $font-weight-primary;
                     padding: 30px;
                     display: flex;
                     flex-direction: row;
                     width: 100%;
                     text-align: left;
-                    border-bottom: 1px solid $secondary-color;
-                    margin-left: 30px;
-                   
+                    // border-bottom: 0.5px solid $secondary-color;
+                    top: 0;
+                    position: sticky;
+                    background-color: $primary-color;
+                    z-index: 10;
 
                     .table-country {
                         width: 40%;
@@ -172,10 +185,53 @@
                     .table-deaths {
                         width: 20%;
                     }
+
+                    .country-th,
+                    .confirmed-th,
+                    .recovered-th,
+                    .deaths-th {
+                        color: $white-color;
+                        font-size: $font-size-h4;
+                    }
+                }
+
+                .table-th {
+                    opacity: 0.7;
+                    font-size: $font-size-h3;
+                    font-weight: $font-weight-primary;
+                    padding: 15px 30px 15px 30px;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    text-align: left;
+                    // border-bottom: 0.5px solid $secondary-color;
+                    letter-spacing: $letter-spacing-primary;
+
+                    .country-th {
+                        width: 40%;
+                    }
+
+                    .confirmed-th {
+                        width: 20%;
+                    }
+
+                    .recovered-th {
+                        width: 20%;
+                    }
+
+                    .deaths-th {
+                        width: 20%;
+                    }
+
+                    .country-th,
+                    .confirmed-th,
+                    .recovered-th,
+                    .deaths-th {
+                        color: $white-color;
+                        font-size: $font-size-h4;
+                    }
                 }
             }
-
-            #countries_stat {}
 
         }
 
