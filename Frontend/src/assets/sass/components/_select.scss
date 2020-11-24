@@ -6,10 +6,11 @@
 
 .app_left {
   width: 450px;
-   height: 100%;
-//   flex-direction: column;
-//   position: relative;
-  padding: 10px;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  padding: 0 10px 20px 10px;
+  background-color: $primary-color;
 
   .loading-data {
     display: flex;
@@ -18,6 +19,7 @@
     // align-items: start;
     width: 100%;
     position: relative;
+    padding: 5px 0;
 
     .loading-data-gif {
       // width: 20px;
@@ -33,6 +35,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-right: 10px;
     }
 
     .loading-data-title {
@@ -41,7 +44,6 @@
       font-size: $font-size-h4;
       width: 100%;
       text-align: right;
-
     }
   }
 }
@@ -65,19 +67,55 @@
 
 .app_left-top {
   width: 100%;
-  padding: 10px 0 20px 0;
+  padding: 0 20px 10px 20px;
   // display: flex;
   // flex-direction: column;
   // justify-content: center;
 
+
+  .app_left-top-title {
+    font-size: $font-size-h3;
+    color: $blue-sea-color;
+    padding: 20px 0 10px 0;
+    font-weight: $font-weight-primary;
+  }
+
+
+  .app_left-top-table {
+    margin-top: 10px;
+    overflow: scroll;
+    height: 350px;
+    width: 100%;
+    color: $primary-color;
+
+    tr {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    td {
+      padding: 0.2rem;
+
+      .country-name,
+      .cases-percent {
+        color: $white-color;
+        font-size: $font-size-h4;
+      }
+
+      .country-name {
+        font-weight: $font-weight-primary;
+        letter-spacing: $letter-spacing-primary;
+      }
+
+      .cases-percent {
+        text-align: right;
+        right: 0;
+        // position: absolute;
+      }
+    }
+  }
 }
 
-.app_left-top-title {
-  font-size: $font-size-h3;
-  color: $blue-sea-color;
-  padding: 20px 0 20px 0;
-  font-weight: $font-weight-primary;
-}
 
 #select-country {
   border-color: aquamarine;
@@ -85,7 +123,7 @@
 
 .app_left-bottom {
   width: 100%;
-  padding: 10px 0 20px 0;
+  padding: 0 20px 0 20px;
 
   .app_left-bottom-title {
     font-size: $font-size-h3;
@@ -94,30 +132,26 @@
     font-weight: $font-weight-primary;
   }
 
-  // .table-total {
-  //   padding: 10px 0 10px 0;
+  .table-total {
+    padding: 10px 0 10px 0;
 
-  //   .table-total-title {
-  //     margin-top: 10px;
-  //     margin-right: 14px;
-  //     color: $secondary-color;
-  //     font-size: $font-size-h3;
-  //     //font-weight: $font-weight-primary;
-  //     margin-bottom: 10px;
-  //   }
+    .table-total-title {
+      margin-top: 10px;
+      margin-right: 14px;
+      color: $secondary-color;
+      font-size: $font-size-h3;
+      //font-weight: $font-weight-primary;
+      margin-bottom: 10px;
+    }
 
-  //   .table-total-cases {
-
-  //     margin-right: 14px;
-  //     color: $white-color;
-  //     font-size: $font-size-h2;
-  //     font-weight: $font-weight-primary;
-  //   }
-  // }
-
-  
+    .table-total-cases {
+      margin-right: 14px;
+      color: $white-color;
+      font-size: $font-size-h2;
+      font-weight: $font-weight-primary;
+    }
+  }  
 }
-
 
 .table-ranks,
 .table-rank1 {
@@ -130,7 +164,10 @@
   .number,
   .country-name,
   .cases-percent {
-    color:$white-color;
+    // color:$white-color;
+    // color: $secondary-color;
+    // margin-right: 14px;
+    font-size: $font-size-h4;
   }
 
   .number {
@@ -138,6 +175,7 @@
     color: $secondary-color;
     font-size: $font-size-h4;
   }
+
   .country-name1 {
     margin-right: 14px;
     color: $white-color;
@@ -158,13 +196,11 @@
     right: 0;
     position: absolute;
   }
+
   .cases-percent1 {
     margin-top: 10px;
     margin-right: 14px;
     color: $secondary-color;
     font-size: $font-size-h3;
   }
-
-
-
 }
