@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import CountUp from 'react-countup';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import { Scale } from 'styled-loaders-react';
 
 export default class CardValue extends React.Component {
@@ -19,7 +18,7 @@ export default class CardValue extends React.Component {
       recovered: fetchdata.data.recovered.value,
       deaths: fetchdata.data.deaths.value,
     };
-    // console.log(modify)
+    // console.log(modify);
     this.setState({ con: fetchdata.data.confirmed.value });
     this.setState({ re: fetchdata.data.recovered.value });
 
