@@ -9,7 +9,7 @@
   height: 100%;
   flex-direction: column;
   position: relative;
-  padding: 0 10px 20px 10px;
+  padding: 0 10px 0 10px;
   background-color: $primary-color;
 
   .loading-data {
@@ -67,7 +67,7 @@
 
 .app_left-top {
   width: 100%;
-  padding: 0 20px 10px 20px;
+  padding: 5px 20px 10px 20px;
   // display: flex;
   // flex-direction: column;
   // justify-content: center;
@@ -76,7 +76,7 @@
   .app_left-top-title {
     font-size: $font-size-h3;
     color: $blue-sea-color;
-    padding: 20px 0 10px 0;
+    padding: 20px 0 20px 0;
     font-weight: $font-weight-primary;
   }
 
@@ -123,7 +123,7 @@
 
 .app_left-bottom {
   width: 100%;
-  padding: 0 20px 0 20px;
+  padding: 10px 20px 20px 20px;
 
   .app_left-bottom-title {
     font-size: $font-size-h3;

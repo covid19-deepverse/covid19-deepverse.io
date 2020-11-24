@@ -56,15 +56,19 @@ export default class CardValue extends React.Component {
             </p>
           </div>
 
+
           {/* <div className="loading-data"> */}
             {/* <div className="loading-data-gif">
-              <Scale color="#50E3C2" size="20px" duration="3s" />
-            </div> */}
 
-            {/* <p className="loading-data-title">
+              <Scale color="#50E3C2" size="20px" duration="3s" />
+            </div> 
+
+            <p className="loading-data-title">
               LAST UPDATED :{new Date(la).toDateString()}{' '}
+
             </p> */}
           {/* </div> */}
+
         </div>
       </>
     );
