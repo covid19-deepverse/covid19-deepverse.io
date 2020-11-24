@@ -28,7 +28,8 @@ const StyledPop = styled(Popup)`
   background-color: '#121429';
   border-radius: 20;
   border: 1px solid $blue-sea-color;
-  padding: 0;
+  /* padding: 0; */
+
   .leaflet-popup-content-wrapper {
     border-radius: 3;
     background-color: #121429;
@@ -37,11 +38,24 @@ const StyledPop = styled(Popup)`
     //opacity: 0.5;
   }
 
+  .leaflet-popup-content {
+  }
+
   .leaflet-popup-tip-container {
     visibility: hidden;
-    border: 1px solid $blue-sea-color;
-    padding: 0;
+    /* border: 1px solid $blue-sea-color; */
+    /* padding: 0; */
   }
+
+  .leaflet-popup-close-button {
+    visibility: hidden;
+  }
+
+  /* .leaflet-popup-tip {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  } */
 `;
 
 export const sortData = (data) => {
