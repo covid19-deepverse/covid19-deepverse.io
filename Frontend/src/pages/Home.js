@@ -54,13 +54,9 @@ function Home() {
 
   const fetchCountry2 = async (countryCode) => {
     try {
-      await axios
-        .get(`/getCountriesData/${countryCode}`)
+      await axios.get(`/getCountriesData/${countryCode}`)
         .then((res) => {
-          // console.log(res.data)
-          // setCountry(countryCode)
-          // setMapCenter([res.data.countryInfo.lat, res.data.countryInfo.long]);
-          // setMapZoom(4)
+       
           console.log(res.data.countryInfo.lat, res.data.countryInfo.long);
           return setMapCenter([
             res.data.countryInfo.lat,
@@ -87,11 +83,6 @@ function Home() {
 
     await fetchCountry2(countryCode);
 
-    // console.log(countryCode)
-
-    // console.log(countryCode)
-
-    // https://disease.sh/v3/covid-19/all
   };
   const handleCaseTypeChange = async (event) => {
     setCasesType(event);

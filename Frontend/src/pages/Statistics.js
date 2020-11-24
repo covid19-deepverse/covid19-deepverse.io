@@ -31,6 +31,8 @@ class Statistics extends React.Component {
 
     // set the state
   };
+
+  
   async componentDidMount() {
     const fetchdata = await axios.get('/getCountry');
     this.setState({
@@ -60,7 +62,9 @@ class Statistics extends React.Component {
     console.log('RecoveredRate: ' + this.state.RecoveredRate);
     console.log(this.state.data);
   }
-
+  componentWillUnmount(){
+    window.removeEventListener('resize',this.resizeLisener)
+  }
   render() {
     const {
       data,
