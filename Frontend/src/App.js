@@ -63,7 +63,7 @@ class App extends React.Component {
                 path="/donate"
                 component={() => {
                   window.location.href =
-                    'https://www.buymeacoffee.com/khawoat6';
+                    'https://www.buymeacoffee.com/khawoat6'
                   return null;
                 }}
               />
