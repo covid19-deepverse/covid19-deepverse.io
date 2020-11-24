@@ -44,7 +44,9 @@ class App extends React.Component {
     //   console.log(res)
     // })
   }
-
+  componentWillUnmount(){
+    window.removeEventListener('resize',this.resizeLisener)
+  }
   render() {
     return (
       <div className="App">

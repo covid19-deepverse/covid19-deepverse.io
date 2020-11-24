@@ -27,7 +27,9 @@ export default class CardValue extends React.Component {
 
     // console.log("Card"+this.state.data.confirmed)
   }
-
+  componentWillUnmount(){
+    window.removeEventListener('resize',this.resizeLisener)
+  }
   render() {
     const { con, re, de, la } = this.state;
 
@@ -54,15 +56,19 @@ export default class CardValue extends React.Component {
             </p>
           </div>
 
-          {/* <div className="loading-data">
-            <div className="loading-data-gif">
+
+          {/* <div className="loading-data"> */}
+            {/* <div className="loading-data-gif">
+
               <Scale color="#50E3C2" size="20px" duration="3s" />
-            </div>
+            </div> 
 
             <p className="loading-data-title">
               LAST UPDATED :{new Date(la).toDateString()}{' '}
-            </p>
-          </div> */}
+
+            </p> */}
+          {/* </div> */}
+
         </div>
       </>
     );

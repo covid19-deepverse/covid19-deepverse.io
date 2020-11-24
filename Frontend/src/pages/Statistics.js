@@ -11,7 +11,8 @@ import CountryPicker from '../components/CountryPicker';
 import axios from 'axios';
 
 import CountUp from 'react-countup';
-
+import Table2 from '../components/Table2'
+import { Table } from '@material-ui/core';
 class Statistics extends React.Component {
   state = {
     data: {},
@@ -31,6 +32,8 @@ class Statistics extends React.Component {
 
     // set the state
   };
+
+
   async componentDidMount() {
     const fetchdata = await axios.get('/getCountry');
     this.setState({
@@ -60,7 +63,9 @@ class Statistics extends React.Component {
     console.log('RecoveredRate: ' + this.state.RecoveredRate);
     console.log(this.state.data);
   }
-
+  componentWillUnmount(){
+    window.removeEventListener('resize',this.resizeLisener)
+  }
   render() {
     const {
       data,
@@ -153,14 +158,15 @@ class Statistics extends React.Component {
         <div className="section3-section4">
           <div className="section3">
             <div className="section3-title">Country Overviews</div>
-            <div className="countries_stat" id="countries_stat">
+            <Table2/>
+            {/* <div className="countries_stat" id="countries_stat">
               <tr className="countries_stat-table">
                 <th className="table-country">Country</th>
                 <th className="table-confirmed">Confirmed</th>
                 <th className="table-recovered">Recovered</th>
                 <th className="table-deaths">Deaths</th>
               </tr>
-            </div>
+            </div> */}
           </div>
           <div className="section4">
             <div></div>
