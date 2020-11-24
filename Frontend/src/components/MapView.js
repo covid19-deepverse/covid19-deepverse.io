@@ -22,7 +22,6 @@ function MapView({ countries, casesType, center, zoom }) {
         dragging={true}
         animate={true}
         easeLinearity={0.35}
-        
       >
         <GeoJSON
           // attribution="&copy; credits due..."
@@ -30,7 +29,7 @@ function MapView({ countries, casesType, center, zoom }) {
           style={() => ({
             color: '#4a83ec',
             weight: 0.5,
-            fillColor: '#1a1d62',
+            fillColor: '#121429',
             fillOpacity: 1,
           })}
         />
