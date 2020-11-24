@@ -1,17 +1,19 @@
 import React from 'react';
 import numeral from 'numeral';
-import '../assets/css/Table.css';
 
 function Table({ countries }) {
   return (
-    <div className="table">
+    <div className="app_left-top-table">
       {countries.map(({ country, cases }) => (
         <tr>
-          {/* Emmet */}
-          <td className="country-name">{country}</td>
+          <td>
+            <strong className="country-name">{country}</strong>
+          </td>
           <td>
             {/* <strong>{cases}</strong> */}
-            <strong className="cases-percent">{numeral(cases).format('0,0')}</strong>
+            <strong className="cases-percent">
+              {numeral(cases).format('0,0')}
+            </strong>
           </td>
         </tr>
       ))}
