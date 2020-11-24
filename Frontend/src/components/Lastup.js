@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import CountUp from 'react-countup';
-import { Scale } from 'styled-loaders-react';
+
 
 export default class Lastup extends React.Component {
   state = {

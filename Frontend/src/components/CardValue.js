@@ -25,7 +25,9 @@ export default class CardValue extends React.Component {
 
     // console.log("Card"+this.state.data.confirmed)
   }
-
+  componentWillUnmount(){
+    window.removeEventListener('resize',this.resizeLisener)
+  }
   render() {
     const { con, re, de, la } = this.state;
 
