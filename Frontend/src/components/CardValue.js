@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import CountUp from 'react-countup';
-import { Scale } from 'styled-loaders-react';
-
 export default class CardValue extends React.Component {
   state = {
     con: null,
@@ -53,16 +51,6 @@ export default class CardValue extends React.Component {
               <CountUp start={0} end={de} duration={2.5} separator="," />{' '}
             </p>
           </div>
-
-          {/* <div className="loading-data">
-            <div className="loading-data-gif">
-              <Scale color="#50E3C2" size="20px" duration="3s" />
-            </div>
-
-            <p className="loading-data-title">
-              LAST UPDATED :{new Date(la).toDateString()}{' '}
-            </p>
-          </div> */}
         </div>
       </>
     );
