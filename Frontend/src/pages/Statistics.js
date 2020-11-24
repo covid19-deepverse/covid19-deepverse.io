@@ -34,7 +34,7 @@ class Statistics extends React.Component {
   };
   async componentDidMount() {
     const fetchdata = await axios.get('/getCountry');
-    this.setState({ data: fetchdata.data ,ConfirmedData: await fetchdata.data.confirmed.value,RecoveriesData:await fetchdata.data.recovered.value,DeathData:await fetchdata.data.deaths.value});
+    this.setState({ data: fetchdata.data ,ConfirmedData:  fetchdata.data.confirmed.value,RecoveriesData: fetchdata.data.recovered.value,DeathData: fetchdata.data.deaths.value});
     this.setState({ActiveData:Number(this.state.ConfirmedData)-(Number(this.state.RecoveriesData)+Number(this.state.DeathData))})
     this.setState({Fatality:((Number(this.state.DeathData)/Number(this.state.RecoveriesData))*100).toFixed(2)})
     this.setState({RecoveredRate:((Number(this.state.RecoveriesData)/Number(this.state.ConfirmedData))*100).toFixed(2)})
@@ -92,11 +92,11 @@ class Statistics extends React.Component {
           <div className="section2-graph">
             <div className="section2-graph-chart">
               <CountryPicker handleCountryChange={this.handleCountryChange} />
-              {country ? (
+              {country ? 
                 <BarChart data={data} country={country} />
-              ) : (
+              : 
                 <LineChart data={data} country={country} />
-              )}
+              }
             </div>
           </div>
         </div>
