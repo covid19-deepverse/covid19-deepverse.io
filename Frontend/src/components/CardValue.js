@@ -59,9 +59,9 @@ export default class CardValue extends React.Component {
               <Scale color="#50E3C2" size="20px" duration="3s" />
             </div>
 
-            <p className="loading-data-title">
+            {/* <p className="loading-data-title">
               LAST UPDATED :{new Date(la).toDateString()}{' '}
-            </p>
+            </p> */}
           </div>
         </div>
       </>
