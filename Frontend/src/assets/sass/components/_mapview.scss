@@ -1,38 +1,45 @@
 .leaflet-container {
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: relative;
-     justify-content: center;
-     align-items: center;
-    z-index: 8;
-    background-color: $primary-color !important;
-}.info-flag {
-    height: 80px;
-    width: 100%;
-    background-size: cover;
-    border-radius: 8px;
-  }
-  
-  .info-flag img {
-    width: 100px;
-    border-radius: 5px;
-  }
-  
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 8;
+  background-color: $primary-color !important;
+
   .info-container {
-    width: 150px;
+    width: 100%;
+    background-color: $primary-color;
 
+    .info-flag {
+      height: 80px;
+      width: 160px;
+      background-size: cover;
+      // border-radius: 8px;
+
+      img {
+        // width: 200px;
+        // height: 200px;
+        // border-radius: 5px;
+      }
+    }
+
+    .info-name {
+      font-family: $font-family-primary;
+      font-size: $font-size-h3;
+      font-weight: $font-weight-primary;
+      color: $blue-sea-color;
+      padding: 20px 0 10px 0;
+    }
+
+    .info-confirmed,
+    .info-recovered,
+    .info-deaths {
+      font-family: $font-family-primary;
+      font-size: $font-size-h4;
+      color: $white-color;
+      margin-top: 5px;
+    }
   }
-
-//   .info-confirmed,
-//   .info-recovered,
-//   .info-deaths {
-//     font-size: 16px;
-//     margin-top: 5px;
-//   }
-  
-//   .info-name {
-//     font-size: 20px;
-//     font-weight: bold;
-//     color: #555;
-//   }
+}
