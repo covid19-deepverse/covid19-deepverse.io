@@ -5,48 +5,28 @@ import axios from 'axios';
 import Table from './Table';
 import CardValue from './CardValue';
 import Lastup from './Lastup'
+
 function SelectCountry({ handleCountryChange, country, countriesData }) {
-  const [countries, setCountries] = useState([]);
-  let [countryData, setcountryData] = useState([]);
+  // const [countries, setCountries] = useState([]);
+ 
+  // const fetchCountry = async () => {
+  //   try {
+  //     const data = await axios.get('/getCountriesCode');
 
-  let Data;
-  let confirmed;
-  let lastUp;
-  const fetchCountry = async () => {
-    try {
-      const data = await axios.get('/getCountriesCode');
+  //     // console.log(data.data);
+  //     return data.data;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-      // console.log(data.data);
-      return data.data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const fetchCountrydata = async () => {
-    try {
-      const fetchdata = await axios.get('/getCountry');
 
-      console.log(fetchdata.data);
-      return fetchdata.data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(async () => {
-    const fetchAPI = async () => {
-      setCountries(await fetchCountry());
-      Data = await fetchCountrydata();
-      console.log('Confirmed: ' + Data.confirmed.value);
-      lastUp=Data.lastUpdate;
-      console.log("lastup:"+lastUp)
-
-      //  Data=Data.confirmed.value
-      confirmed = Data.confirmed.value;
-      //  console.log(countryData)
-    };
-    await fetchAPI();
-  }, [setCountries]);
+  // useEffect(async () => {
+  //   const fetchAPI = async () => {
+  //     setCountries(await fetchCountry());
+  //   };
+  //   await fetchAPI();
+  // }, [setCounties]);
 
   return (
     <div className="app_left">
