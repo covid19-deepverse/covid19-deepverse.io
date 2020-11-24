@@ -1,6 +1,7 @@
 import React from 'react';
 import numeral from 'numeral';
 import { Circle, Popup } from 'react-leaflet';
+import styled from 'styled-components';
 
 const casesTypeColors = {
   cases: {
@@ -23,6 +24,26 @@ const casesTypeColors = {
   },
 };
 
+const StyledPop = styled(Popup)`
+  background-color: '#121429';
+  border-radius: 20;
+  border: 1px solid $blue-sea-color;
+  padding: 0;
+  .leaflet-popup-content-wrapper {
+    border-radius: 3;
+    background-color: #121429;
+    border: 1px solid $blue-sea-color;
+    padding: 5px 0 5px 0;
+    //opacity: 0.5;
+  }
+
+  .leaflet-popup-tip-container {
+    visibility: hidden;
+    border: 1px solid $blue-sea-color;
+    padding: 0;
+  }
+`;
+
 export const sortData = (data) => {
   const sortedData = [...data];
 
@@ -35,7 +56,6 @@ export const prettyPrintStat = (stat) =>
 // DRAW Circles on the map with interactive tooltip
 export const showDataOnMap = (data, casesType = 'cases') =>
   data.map((country) => (
-    
     <Circle
       center={[country.countryInfo.lat, country.countryInfo.long]}
       fillOpacity={0.4}
@@ -45,7 +65,7 @@ export const showDataOnMap = (data, casesType = 'cases') =>
         Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier
       }
     >
-      <Popup >
+      <StyledPop>
         <div className="info-container">
           <div
             className="info-flag"
@@ -64,6 +84,6 @@ export const showDataOnMap = (data, casesType = 'cases') =>
             Deaths: {numeral(country.deaths).format('0,0')}
           </div>
         </div>
-      </Popup>
+      </StyledPop>
     </Circle>
   ));
