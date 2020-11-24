@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    overflow: scroll;
     // width: 100%;
     // top: 0;
     // left: 0;
@@ -98,16 +99,89 @@
             font-weight: $font-weight-primary;
             padding: 30px;
             letter-spacing: $letter-spacing-secondary;
+            text-transform: $text-transform;
 
         }
 
-        .section2-graph {
+        /*.section2-graph {
             width: 40%;
             height: 100px;
-        }
+        }*/
+
+
 
     }
 
+    .section3-section4 {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
 
 
+        .section3 {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            padding: 20px;
+
+            .section3-title {
+                font-size: $font-size-h2;
+                color: $white-color;
+                font-weight: $font-weight-primary;
+                padding: 30px;
+                letter-spacing: $letter-spacing-secondary;
+                text-transform: $text-transform;
+
+            }
+
+            .countries_stat {
+
+                /* border-collapse: collapse; */
+                /* margin-top: 3rem; */
+                /* padding-top: 2%; */
+                /* margin: 2%; */
+                /* display: flex; */
+                /* flex-direction: row; */
+                /* background: #fff; */
+                /* box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.1); */
+
+                .countries_stat-table {
+                    opacity: 0.8;
+                    color: $white-color;
+                    font-weight: bold;
+                    padding: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    text-align: left;
+                    border-bottom: 1px solid $secondary-color;
+                    margin-left: 30px;
+
+                    .table-country {
+                        width: 40%;
+                    }
+                    .table-confirmed {
+                        width: 20%;
+                    }
+                    .table-recovered {
+                        width: 20%;
+                    }
+                    .table-deaths {
+                        width: 20%;
+                    }
+                }
+            }
+
+            #countries_stat {}
+
+        }
+
+        .section4 {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            padding: 20px;
+        }
+    }
 }
