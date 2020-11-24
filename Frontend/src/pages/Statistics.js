@@ -142,26 +142,35 @@ class Statistics extends React.Component {
           </div>
         </div>
         <div className="section2">
-          <div className="section2-title">NEW CASES</div>
-          <div className="section2-graph">
+          <div className="section2-title">Country Overviews</div>
+          {/* <div className="section2-graph">
             <div className="section2-graph-chart">
               <CountryPicker handleCountryChange={this.handleCountryChange} />
               {country ? (
                 <BarChart data={data} country={country} />
               ) : (
-                <LineChart data={data} country={country} />
-              )}
+                  <LineChart data={data} country={country} />
+                )}
+              </div> 
+          </div> */}
+        </div>
+        <div className="section3-section4">
+          <div className="section3">
+            <div className="section3-title">Country Overviews</div>
+            <div className="countries_stat" id="countries_stat">
+              <tr className="countries_stat-table">
+                <th className="table-country">Country</th>
+                <th className="table-confirmed">Confirmed</th>
+                <th className="table-recovered">Recovered</th>
+                <th className="table-deaths">Deaths</th>
+              </tr>
             </div>
           </div>
-        </div>
-        <div className="section3">
-          <div></div>
-          <div></div>
-        </div>
-        <div className="section4">
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className="section4">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       </div>
     );
