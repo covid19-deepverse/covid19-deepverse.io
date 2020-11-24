@@ -7,16 +7,26 @@ import React from 'react';
 import * as IoIcons from 'react-icons/io';
 
 class Blog extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      showReply: false,
+ 
+    state = {
+      showReply1: false,
+      showReply2: false,
+      showReply3: false,
+      showReply4: false,
+      showReply5: false,
+      showReply6: false,
+      showReply7: false,
+      showReply8: false,
+      showReply9: false,
+      showReply10: false,
+      showReply11: false,
+
     };
-  }
-  onClick(e) {
-    e.preventDefault();
-    this.setState({ showReply: !this.state.showReply });
-  }
+  
+  // onClick(e) {
+  //   e.preventDefault();
+  //   this.setState({ showReply: !this.state.showReply });
+  // }
   render() {
     return (
       <div className="blog-contents">
@@ -44,13 +54,13 @@ class Blog extends React.Component {
             <div className="contents">
               <div className="content-number">1</div>
               <div className="content-title">
-                <a onClick={this.onClick.bind(this)} href="#">
+                <a onClick={()=>{this.setState({showReply1:!this.state.showReply1})}} href="#">
                   กูติดยังวะ?
                 </a>
               </div>
             </div>
             <div className="content-show">
-              {this.state.showReply && (
+              {this.state.showReply1 && (
                 <p>
                   <dd>
                     ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
@@ -74,13 +84,13 @@ class Blog extends React.Component {
             <div className="contents">
               <div className="content-number">2</div>
               <div className="content-title">
-                <a onClick={this.onClick.bind(this)} href="#">
+                <a onClick={()=>{this.setState({showReply2:!this.state.showReply2})}} href="#">
                   มีเซ็กส์กับแฟนจะติดโควิดไหมคะ?
                 </a>
               </div>
             </div>
             <div className="content-show">
-              {this.state.showReply && (
+              {this.state.showReply2 && (
                 <p>
                   มันต้องถามจริงๆ เนอะ เพราะรอบนี้ท่าจะอีกนาน
                   <br />
@@ -107,6 +117,256 @@ class Blog extends React.Component {
                   <br />
                   <br />
                   ยังไงก็ลองประเมินจากข้อมูลทั้งหมดนี้ดู แล้วหาทางออกกันนะคะ
+                </p>
+              )}
+            </div>
+
+            <div className="contents">
+              <div className="content-number">3</div>
+              <div className="content-title">
+                <a onClick={()=>{this.setState({showReply3:!this.state.showReply3})}}href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply3 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
+                </p>
+              )}
+            </div>
+
+
+            <div className="contents">
+              <div className="content-number">4</div>
+              <div className="content-title">
+                <a  onClick={()=>{this.setState({showReply4:!this.state.showReply4})}}href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply4 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
+                </p>
+              )}
+            </div>
+
+
+            <div className="contents">
+              <div className="content-number">5</div>
+              <div className="content-title">
+                <a onClick={()=>{this.setState({showReply5:!this.state.showReply5})}}href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply5 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
+                </p>
+              )}
+            </div>
+
+
+
+            <div className="contents">
+              <div className="content-number">6</div>
+              <div className="content-title">
+                <a onClick={()=>{this.setState({showReply6:!this.state.showReply6})}} href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply6 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
+                </p>
+              )}
+            </div>
+
+
+
+            <div className="contents">
+              <div className="content-number">7</div>
+              <div className="content-title">
+                <a onClick={()=>{this.setState({showReply7:!this.state.showReply7})}} href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply7 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
+                </p>
+              )}
+            </div>
+
+
+
+            <div className="contents">
+              <div className="content-number">8</div>
+              <div className="content-title">
+                <a  onClick={()=>{this.setState({showReply8:!this.state.showReply8})}}href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply8 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
+                </p>
+              )}
+            </div>
+
+
+            <div className="contents">
+              <div className="content-number">9</div>
+              <div className="content-title">
+                <a onClick={()=>{this.setState({showReply9:!this.state.showReply9})}} href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply9 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
+                </p>
+              )}
+            </div>
+
+
+            <div className="contents">
+              <div className="content-number">10</div>
+              <div className="content-title">
+                <a onClick={()=>{this.setState({showReply10:!this.state.showReply10})}} href="#">
+                  กูติดยังวะ?
+                </a>
+              </div>
+            </div>
+            <div className="content-show">
+              {this.state.showReply10 && (
+                <p>
+                  <dd>
+                    ก่อนอื่นขอเรียกคุณนะค้าาา ถ้าไปตรวจเชื้อโควิด-19
+                    กับโรงพยาบาลแล้วแจ้งมาว่าพบเชื้อ (Detectable)
+                    นั่นแปลว่าติดแล้วค่ะ แม้ทางการแพทย์จะบอกว่าควรตรวจสองรอบ
+                    แต่สถานการณ์ตอนนี้ ชุดตรวจวัดขาดแคลนอยู่
+                    อาจจะตรวจรอบเดียวไปก่อนได้ ส่วนข้อบ่งชี้อื่นๆ
+                    ที่อาจจะบ่งชี้ว่าคุณติดโควิด-19 แล้วก็ได้แก่
+                    <br />
+                    <br />* ไข้ขึ้นสูง
+                    <br />* การรับรสหรือกลิ่นแย่ลง
+                    <br />* เหนื่อยล้ามาก
+                    <br />* ไอแห้ง
+                    <br />* มีอาการปวดเมื่อยกล้ามเนื้อ
+                    <br />* หายใจลำบาก
+                  </dd>
                 </p>
               )}
             </div>
