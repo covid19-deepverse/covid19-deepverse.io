@@ -28,19 +28,19 @@ const LineChart = ({ data: { confirmed, recovered, deaths }, country }) => {
     datasets: [
       {
         data: dailyData.map(({ confirmed }) => confirmed),
-        label: 'Infected',
-        fill: false,
+        label: 'Confirmed',
+        //fill: false,
         borderColor: ['rgba(234, 87, 113, 1)'],
-        backgroundColor: ['rgba(234, 87, 113, 1)'],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)'],
         pointBackgroundColor: 'rgba(234, 87, 113, 1)',
         pointBorderColor: 'rgba(234, 87, 113, 1)',
       },
       {
         label: 'Deaths',
-        fill: false,
+        //fill: false,
         data: dailyData.map(({ deaths }) => deaths),
         borderColor: ['rgba(210, 45, 54, 1)'],
-        backgroundColor: ['rgba(210, 45, 54, 1)'],
+        backgroundColor: ['rgba(231, 57, 73, 0.2)'],
         pointBackgroundColor: 'rgba(210, 45, 54, 1)',
         pointBorderColor: 'rgba(210, 45, 54, 1)',
       },
@@ -48,6 +48,7 @@ const LineChart = ({ data: { confirmed, recovered, deaths }, country }) => {
   };
   return (
     <>
+      <h1 className="title">Infections History</h1>
       <Line data={data} />
     </>
   );
