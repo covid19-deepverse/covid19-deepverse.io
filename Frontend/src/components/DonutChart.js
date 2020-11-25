@@ -18,44 +18,38 @@ import { Animation } from '@devexpress/dx-react-chart';
 //   { region: 'Oceania', val: 35104756 },
 // ];
 
-
 export default class DonutChart extends React.PureComponent {
-//   constructor(props) {
-//     super(props);
+  //   constructor(props) {
+  //     super(props);
 
-//     this.state = {
-//       data,
-//     };
-//   }
-    state={
-        DataforDonut:[]
-    }
+  //     this.state = {
+  //       data,
+  //     };
+  //   }
+  state = {
+    DataforDonut: [],
+  };
 
-  async componentDidMount(){
-      try {
-        const fetchdata=await axios.get('/getCountry/Thailand')
-        // this.setState({data:fetchdata.data});
-        console.log(fetchdata.data.confirmed.value)
-        console.log(fetchdata.data.recovered.value)
-    
-        console.log(fetchdata.data.deaths.value)
-    
-        const dataset=[
-            
-                {Type:"confirmed",val:fetchdata.data.confirmed.value},
-                {Type:"recovered",val:fetchdata.data.recovered.value},
-                {Type:"deaths",val:fetchdata.data.deaths.value},
-        
-    ]
+  async componentDidMount() {
+    try {
+      const fetchdata = await axios.get('/getCountry/Thailand');
+      // this.setState({data:fetchdata.data});
+      console.log(fetchdata.data.confirmed.value);
+      console.log(fetchdata.data.recovered.value);
 
-    console.log(dataset)
-    this.setState({DataforDonut:dataset})
-      } catch (error) {
-          
-      }
-    
+      console.log(fetchdata.data.deaths.value);
+
+      const dataset = [
+        { Type: 'confirmed', val: fetchdata.data.confirmed.value },
+        { Type: 'recovered', val: fetchdata.data.recovered.value },
+        { Type: 'deaths', val: fetchdata.data.deaths.value },
+      ];
+
+      console.log(dataset);
+      this.setState({ DataforDonut: dataset });
+    } catch (error) {}
+
     // this.setState({data:dataset})
-     
   }
 
   render() {
@@ -63,17 +57,9 @@ export default class DonutChart extends React.PureComponent {
 
     return (
       <Paper>
-        <Chart
-          data={chartData}
-        >
-          <PieSeries
-            valueField="val"
-            argumentField="Type"
-            innerRadius={0.6}
-          />
-          <Title
-            text="The World Infection Rate"
-          />
+        <Chart data={chartData}>
+          <PieSeries valueField="val" argumentField="Type" innerRadius={0.6} />
+          {/* <Title text="The World Infection Rate" /> */}
           <Animation />
         </Chart>
       </Paper>

@@ -29,6 +29,7 @@ const LineChart = ({ data: { confirmed, recovered, deaths }, country }) => {
       {
         data: dailyData.map(({ confirmed }) => confirmed),
         label: 'Infected',
+        fill: false,
         borderColor: ['rgba(234, 87, 113, 1)'],
         backgroundColor: ['rgba(234, 87, 113, 1)'],
         pointBackgroundColor: 'rgba(234, 87, 113, 1)',
@@ -36,6 +37,7 @@ const LineChart = ({ data: { confirmed, recovered, deaths }, country }) => {
       },
       {
         label: 'Deaths',
+        fill: false,
         data: dailyData.map(({ deaths }) => deaths),
         borderColor: ['rgba(210, 45, 54, 1)'],
         backgroundColor: ['rgba(210, 45, 54, 1)'],
@@ -44,27 +46,6 @@ const LineChart = ({ data: { confirmed, recovered, deaths }, country }) => {
       },
     ],
   };
-  // const data={
-  //   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-  //   datasets: [
-  //     {
-  //       label: 'Sales for 2020 (M)',
-  //       data: [3, 2, 2, 1, 5],
-  //       borderColor: ['rgba(255, 206, 86, 0.2)'],
-  //       backgroundColor: ['rgba(255, 206, 86, 0.2)'],
-  //       pointBackgroundColor: 'rgba(255, 206, 86, 0.2)',
-  //       pointBorderColor: 'rgba(255, 206, 86, 0.2)',
-  //     },
-  //     {
-  //       label: 'Sales for 2019 (M)',
-  //       data: [1, 3, 2, 2, 3],
-  //       borderColor: ['rgba(54, 162, 235, 0.2)'],
-  //       backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-  //       pointBackgroundColor: 'rgba(54, 162, 235, 0.2)',
-  //       pointBorderColor: 'rgba(54, 162, 235, 0.2)',
-  //     },
-  //   ],
-  // };
   return (
     <>
       <Line data={data} />

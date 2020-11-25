@@ -6,12 +6,16 @@
 import React from 'react';
 import LineChart from '../components/LineChart';
 import BarChart from '../components/BarChart';
+import DonutChart from '../components/DonutChart';
+import StackedBar from '../components/StackedBar';
+import LineChart2 from '../components/LineChart2';
+import DoughnutChart from '../components/DoughnutChart';
 
 import CountryPicker from '../components/CountryPicker';
 import axios from 'axios';
 
 import CountUp from 'react-countup';
-import Table2 from '../components/Table2'
+import Table2 from '../components/Table2';
 import { Table } from '@material-ui/core';
 class Statistics extends React.Component {
   state = {
@@ -32,7 +36,6 @@ class Statistics extends React.Component {
 
     // set the state
   };
-
 
   async componentDidMount() {
     const fetchdata = await axios.get('/getCountry');
@@ -63,8 +66,8 @@ class Statistics extends React.Component {
     console.log('RecoveredRate: ' + this.state.RecoveredRate);
     console.log(this.state.data);
   }
-  componentWillUnmount(){
-    window.removeEventListener('resize',this.resizeLisener)
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeLisener);
   }
   render() {
     const {
@@ -142,23 +145,10 @@ class Statistics extends React.Component {
             </div>
           </div>
         </div>
-        <div className="section2">
-          <div className="section2-title">Country Overviews</div>
-          {/* <div className="section2-graph">
-            <div className="section2-graph-chart">
-              <CountryPicker handleCountryChange={this.handleCountryChange} />
-              {country ? (
-                <BarChart data={data} country={country} />
-              ) : (
-                  <LineChart data={data} country={country} />
-                )}
-              </div> 
-          </div> */}
-        </div>
         <div className="section3-section4">
           <div className="section3">
             <div className="section3-title">Country Overviews</div>
-            <Table2/>
+            <Table2 />
             {/* <div className="countries_stat" id="countries_stat">
               <tr className="countries_stat-table">
                 <th className="table-country">Country</th>
@@ -169,9 +159,59 @@ class Statistics extends React.Component {
             </div> */}
           </div>
           <div className="section4">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="section4-graph">
+              <div className="section4-title">Graph</div>
+              <div className="section4-graph-show">
+                <div className="section4-graph-chart">
+                  <CountryPicker
+                    handleCountryChange={this.handleCountryChange}
+                  />
+                  {country ? (
+                    <BarChart data={data} country={country} />
+                  ) : (
+                    <LineChart data={data} country={country} />
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="section4-graph">
+              <div className="section4-title">Graph</div>
+              <div className="section4-graph-show">
+                <div className="section4-graph-chart">
+                  <StackedBar data={data} />
+                </div>
+              </div>
+            </div>
+
+            {/* <div className="section4-graph">
+              <div className="section4-title">Graph</div>
+              <div className="section4-graph-show">
+                <div className="section4-graph-chart">
+                  <CountryPicker
+                    handleCountryChange={this.handleCountryChange}
+                  />
+                  {country ? (
+                    <BarChart data={data} country={country} />
+                  ) : (
+                    <LineChart data={data} country={country} />
+                  )}
+                </div>
+              </div>
+            </div> */}
+          </div>
+        </div>
+        <div className="section2">
+          <div className="section2-title">Graph Overviews</div>
+          <div className="section2-wrapper">
+            <div className="section2-left">
+              <LineChart2 data={data} />
+            </div>
+            <div className="section2-center">
+              <DoughnutChart data={data} />
+            </div>
+            <div className="section2-right">
+              <LineChart2 data={data} />
+            </div>
           </div>
         </div>
       </div>
