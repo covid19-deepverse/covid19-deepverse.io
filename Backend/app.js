@@ -5,6 +5,7 @@ const axios =require ('axios')
 const port =5000;
 const url="https://covid19.mathdro.id/api"
 const url2="https://disease.sh/v3/covid-19"
+// import Database from './database/Database'
 app.get('/', (req, res) => {
   res.send('Hello World : API SERVER')
 })
@@ -170,6 +171,7 @@ app.get('/getAllData',(req,res)=>{
         })
 
 })
+
   
 
   
