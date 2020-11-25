@@ -4,19 +4,27 @@
  */
 
 import React from 'react';
+
+// IMPORT COMPONENTS FOR SHOW
 import LineChart from '../components/LineChart';
 import BarChart from '../components/BarChart';
-import DonutChart from '../components/DonutChart';
 import StackedBar from '../components/StackedBar';
-import LineChart2 from '../components/LineChart2';
 import DoughnutChart from '../components/DoughnutChart';
-
+import PieChart from '../components/PieChart';
+import HorizontalBarChart from '../components/HorizontalBarChart';
 import CountryPicker from '../components/CountryPicker';
-import axios from 'axios';
-
-import CountUp from 'react-countup';
 import Table2 from '../components/Table2';
-import { Table } from '@material-ui/core';
+
+// IMPORT COMPONENTS FOR HIDE
+// import DonutChart from '../components/DonutChart';
+// import LineChart2 from '../components/LineChart2';
+// import StackedAreaChart from '../components/StackedAreaChart';
+// import CustomActiveShapePieChart from '../components/CustomActiveShapePieChart';
+
+// IMPORT LIBRARY
+import axios from 'axios';
+import CountUp from 'react-countup';
+
 class Statistics extends React.Component {
   state = {
     data: {},
@@ -33,7 +41,6 @@ class Statistics extends React.Component {
     console.log(fetchdata.data);
     this.setState({ data: fetchdata.data, country: country });
     //fetch data
-
     // set the state
   };
 
@@ -82,139 +89,114 @@ class Statistics extends React.Component {
     } = this.state;
     console.log('Country :' + country);
     return (
-      // <div className="statistics">
-      //   <div className="chart">
-      //   <CountryPicker handleCountryChange={this.handleCountryChange}/>
-      //   {country ? <BarChart data={data} country={country}/>: <LineChart data={data} country={country}/>}
-
-      //   </div>
-      // </div>
-
-      <div className="statistics">
-        <div className="section1">
-          <div className="section1-title">WORLD</div>
-          <div className="section1-row1">
-            <div className="row1-total-cases">
-              <p className="total-cases-numbers">
-                <CountUp
-                  start={0}
-                  end={ConfirmedData}
-                  duration={3}
-                  separator=","
-                />
-              </p>
-              <p className="total-cases-title">TOTAL CASES</p>
-            </div>
-            <div className="row1-total-cases">
-              <p className="deaths-numbers">
-                <CountUp start={0} end={DeathData} duration={3} separator="," />
-              </p>
-              <p className="deaths-title">DEATHS</p>
-            </div>
-            <div className="row1-total-cases">
-              <p className="active-cases-numbers">
-                <CountUp
-                  start={0}
-                  end={ActiveData}
-                  duration={3}
-                  separator=","
-                />
-              </p>
-              <p className="active-cases-title">ACTIVE CASES</p>
-            </div>
-          </div>
-          <div className="section1-row2">
-            <div className="row1-total-cases">
-              <p className="fatality-rate-numbers">{Fatality}%</p>
-              <p className="fatality-rate-title">FATALITY RATE</p>
-            </div>
-            <div className="row1-total-cases">
-              <p className="recoveries-numbers">
-                <CountUp
-                  start={0}
-                  end={RecoveriesData}
-                  duration={3}
-                  separator=","
-                />
-              </p>
-              <p className="recoveries-title">RECOVERIES</p>
-            </div>
-            <div className="row1-total-cases">
-              <p className="recovery-rate-numbers">{RecoveredRate}%</p>
-              <p className="recovery-rate-title">RECOVERY RATE</p>
-            </div>
-          </div>
-        </div>
-        <div className="section3-section4">
-          <div className="section4">
-            <div className="section4-graph">
-              <div className="section4-title">Graph</div>
-              <div className="section4-graph-show">
-                <div className="section4-graph-chart">
-                  <CountryPicker
-                    handleCountryChange={this.handleCountryChange}
+      <>
+        <div className="statistics">
+          <div className="section1">
+            <div className="section1-title">WORLD</div>
+            <div className="section1-row1">
+              <div className="row1-total-cases">
+                <p className="total-cases-numbers">
+                  <CountUp
+                    start={0}
+                    end={ConfirmedData}
+                    duration={3}
+                    separator=","
                   />
-                  {country ? (
-                    <BarChart data={data} country={country} />
-                  ) : (
-                    <LineChart data={data} country={country} />
-                  )}
-                </div>
+                </p>
+                <p className="total-cases-title">TOTAL CASES</p>
               </div>
-            </div>
-            <div className="section4-graph">
-              <div className="section4-title">Graph</div>
-              <div className="section4-graph-show">
-                <div className="section4-graph-chart">
-                  <StackedBar data={data} />
-                </div>
-              </div>
-            </div>
-
-            {/* <div className="section4-graph">
-              <div className="section4-title">Graph</div>
-              <div className="section4-graph-show">
-                <div className="section4-graph-chart">
-                  <CountryPicker
-                    handleCountryChange={this.handleCountryChange}
+              <div className="row1-total-cases">
+                <p className="deaths-numbers">
+                  <CountUp
+                    start={0}
+                    end={DeathData}
+                    duration={3}
+                    separator=","
                   />
-                  {country ? (
-                    <BarChart data={data} country={country} />
-                  ) : (
-                    <LineChart data={data} country={country} />
-                  )}
+                </p>
+                <p className="deaths-title">DEATHS</p>
+              </div>
+              <div className="row1-total-cases">
+                <p className="active-cases-numbers">
+                  <CountUp
+                    start={0}
+                    end={ActiveData}
+                    duration={3}
+                    separator=","
+                  />
+                </p>
+                <p className="active-cases-title">ACTIVE CASES</p>
+              </div>
+            </div>
+            <div className="section1-row2">
+              <div className="row1-total-cases">
+                <p className="fatality-rate-numbers">{Fatality}%</p>
+                <p className="fatality-rate-title">FATALITY RATE</p>
+              </div>
+              <div className="row1-total-cases">
+                <p className="recoveries-numbers">
+                  <CountUp
+                    start={0}
+                    end={RecoveriesData}
+                    duration={3}
+                    separator=","
+                  />
+                </p>
+                <p className="recoveries-title">RECOVERIES</p>
+              </div>
+              <div className="row1-total-cases">
+                <p className="recovery-rate-numbers">{RecoveredRate}%</p>
+                <p className="recovery-rate-title">RECOVERY RATE</p>
+              </div>
+            </div>
+          </div>
+          <div className="section3-section4">
+            <div className="section4">
+              <div className="section4-graph">
+                <div className="section4-title">Graph Overviews</div>
+                <div className="section4-graph-show">
+                  <div className="section4-graph-chart">
+                    <CountryPicker
+                      handleCountryChange={this.handleCountryChange}
+                    />
+                    {country ? (
+                      <BarChart data={data} country={country} />
+                    ) : (
+                      <LineChart data={data} country={country} />
+                    )}
+                  </div>
                 </div>
               </div>
-            </div> */}
-          </div>
-          <div className="section3">
-            <div className="section3-title">Country Overviews</div>
-            <Table2 />
-            {/* <div className="countries_stat" id="countries_stat">
-              <tr className="countries_stat-table">
-                <th className="table-country">Country</th>
-                <th className="table-confirmed">Confirmed</th>
-                <th className="table-recovered">Recovered</th>
-                <th className="table-deaths">Deaths</th>
-              </tr>
-            </div> */}
+              <div className="section4-graph">
+                <div className="section4-title">Graph Overviews</div>
+                <div className="section4-graph-show">
+                  <div className="section4-graph-chart">
+                    <StackedBar data={data} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="section2">
+              <div className="section2-title">Graph Overviews</div>
+              <div className="section2-wrapper">
+                <div className="section2-left">
+                  <HorizontalBarChart data={data} />
+                </div>
+                <div className="section2-center">
+                  <DoughnutChart data={data} />
+                </div>
+                <div className="section2-right">
+                  <PieChart data={data} />
+                </div>
+              </div>
+            </div>
+            <div className="section3">
+              <div className="section3-title">Country Overviews</div>
+              <Table2 />
+            </div>
           </div>
         </div>
-        <div className="section2">
-          <div className="section2-title">Graph Overviews</div>
-          <div className="section2-wrapper">
-            <div className="section2-left">
-              <LineChart2 data={data} />
-            </div>
-            <div className="section2-center">
-              <DoughnutChart data={data} />
-            </div>
-            <div className="section2-right">
-              <LineChart2 data={data} />
-            </div>
-          </div>
-        </div>
-      </div>
+      </>
     );
   }
 }
