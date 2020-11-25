@@ -6,6 +6,10 @@
 import React from 'react';
 import LineChart from '../components/LineChart';
 import BarChart from '../components/BarChart';
+import DonutChart from '../components/DonutChart';
+import StackedBar from '../components/StackedBar';
+import LineChart2 from '../components/LineChart2';
+import DoughnutChart from '../components/DoughnutChart';
 
 import CountryPicker from '../components/CountryPicker';
 import axios from 'axios';
@@ -141,19 +145,6 @@ class Statistics extends React.Component {
             </div>
           </div>
         </div>
-        <div className="section2">
-          <div className="section2-title">Country Overviews</div>
-          {/* <div className="section2-graph">
-            <div className="section2-graph-chart">
-              <CountryPicker handleCountryChange={this.handleCountryChange} />
-              {country ? (
-                <BarChart data={data} country={country} />
-              ) : (
-                  <LineChart data={data} country={country} />
-                )}
-              </div> 
-          </div> */}
-        </div>
         <div className="section3-section4">
           <div className="section3">
             <div className="section3-title">Country Overviews</div>
@@ -183,8 +174,16 @@ class Statistics extends React.Component {
                 </div>
               </div>
             </div>
-
             <div className="section4-graph">
+              <div className="section4-title">Graph</div>
+              <div className="section4-graph-show">
+                <div className="section4-graph-chart">
+                  <StackedBar data={data} />
+                </div>
+              </div>
+            </div>
+
+            {/* <div className="section4-graph">
               <div className="section4-title">Graph</div>
               <div className="section4-graph-show">
                 <div className="section4-graph-chart">
@@ -198,6 +197,20 @@ class Statistics extends React.Component {
                   )}
                 </div>
               </div>
+            </div> */}
+          </div>
+        </div>
+        <div className="section2">
+          <div className="section2-title">Graph Overviews</div>
+          <div className="section2-wrapper">
+            <div className="section2-left">
+              <LineChart2 data={data} />
+            </div>
+            <div className="section2-center">
+              <DoughnutChart data={data} />
+            </div>
+            <div className="section2-right">
+              <LineChart2 data={data} />
             </div>
           </div>
         </div>
