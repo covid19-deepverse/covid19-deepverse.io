@@ -25,12 +25,6 @@ export const SidebarData = [
     cName: 'nav-text',
   },
   {
-    title: 'News',
-    path: '/news',
-    icon: <BsIcons.BsNewspaper />,
-    cName: 'nav-text',
-  },
-  {
     title: 'Statistics',
     path: '/statistics',
     icon: <BiIcons.BiStats />,

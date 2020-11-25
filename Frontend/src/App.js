@@ -12,7 +12,6 @@ import { Scale } from 'styled-loaders-react';
 import Home from './pages/Home';
 import About from './pages/About';
 // import Donate from './pages/Donate';
-import News from './pages/News';
 import Statistics from './pages/Statistics';
 import Thailand from './pages/Thailand';
 import Blog from './pages/Blog';
@@ -44,8 +43,8 @@ class App extends React.Component {
     //   console.log(res)
     // })
   }
-  componentWillUnmount(){
-    window.removeEventListener('resize',this.resizeLisener)
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeLisener);
   }
   render() {
     return (
@@ -65,11 +64,10 @@ class App extends React.Component {
                 path="/donate"
                 component={() => {
                   window.location.href =
-                    'https://www.buymeacoffee.com/khawoat6'
+                    'https://www.buymeacoffee.com/khawoat6';
                   return null;
                 }}
               />
-              <Route path="/news" component={News} />
               <Route path="/statistics" component={Statistics} />
               <Route path="/thailand" component={Thailand} />
               <Route path="/blog" component={Blog} />
