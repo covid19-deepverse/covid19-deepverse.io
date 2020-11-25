@@ -156,15 +156,16 @@
 
     .section3-section4 {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
         justify-content: center;
+        align-items: center;
 
 
         .section3 {
             display: flex;
             flex-direction: column;
-            width: 50%;
+            width: 100%;
             padding: 20px;
             // border-radius: 15px;
             // background: #121429;
@@ -280,12 +281,16 @@
 
         .section4 {
             display: flex;
-            flex-direction: column;
-            width: 50%;
+            flex-direction: row;
+            width: 100%;
             padding: 20px;
+            // justify-content: center;
+            // align-items: center;
 
             .section4-graph {
-                height: 50%;
+                width: 50%;
+                height: 100%;
+                margin: 30px;
 
                 .section4-title {
                     font-size: $font-size-h1;
@@ -308,6 +313,10 @@
 
                     .section4-graph-chart {
                         padding: 30px;
+
+                        .title {
+                            padding: 25px 0;
+                        }
                     }
                 }
 
