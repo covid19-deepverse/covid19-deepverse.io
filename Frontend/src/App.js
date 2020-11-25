@@ -13,7 +13,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 // import Donate from './pages/Donate';
 import Statistics from './pages/Statistics';
-import Thailand from './pages/Thailand';
 import Blog from './pages/Blog';
 
 // IMPORT SCSS
@@ -69,7 +68,6 @@ class App extends React.Component {
                 }}
               />
               <Route path="/statistics" component={Statistics} />
-              <Route path="/thailand" component={Thailand} />
               <Route path="/blog" component={Blog} />
             </Switch>
             {/* <Panel className="app_panel" /> */}

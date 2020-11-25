@@ -31,12 +31,6 @@ export const SidebarData = [
     cName: 'nav-text',
   },
   {
-    title: 'Thailand',
-    path: '/thailand',
-    icon: <FaIcons.FaCity />,
-    cName: 'nav-text',
-  },
-  {
     title: 'Blog',
     path: '/blog',
     icon: <FiIcons.FiBookmark />,
