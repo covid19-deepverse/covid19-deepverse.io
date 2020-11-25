@@ -6,7 +6,7 @@ export default class CardValue extends React.Component {
     con: null,
     re: null,
     de: null,
-    la: null,
+    // la: null,
   };
 
   async componentDidMount() {
@@ -21,15 +21,16 @@ export default class CardValue extends React.Component {
     this.setState({ re: fetchdata.data.recovered.value });
 
     this.setState({ de: fetchdata.data.deaths.value });
-    this.setState({ la: fetchdata.data.lastUpdate });
+    // this.setState({ la: fetchdata.data.lastUpdate });
 
     // console.log("Card"+this.state.data.confirmed)
   }
-  componentWillUnmount(){
-    window.removeEventListener('resize',this.resizeLisener)
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeLisener);
   }
   render() {
-    const { con, re, de, la } = this.state;
+    // const { con, re, de, la } = this.state;
+    const { con, re, de } = this.state;
 
     return (
       <>

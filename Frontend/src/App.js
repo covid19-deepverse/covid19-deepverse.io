@@ -10,10 +10,10 @@ import { Scale } from 'styled-loaders-react';
 
 // IMPORT PAGES
 import Home from './pages/Home';
-import About from './pages/About';
-// import Donate from './pages/Donate';
 import Statistics from './pages/Statistics';
 import Blog from './pages/Blog';
+import About from './pages/About';
+// import Donate from './pages/Donate';
 
 // IMPORT SCSS
 import './assets/sass/_main.scss';
@@ -57,7 +57,7 @@ class App extends React.Component {
             <Navbar className="app_navbar" />
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/about" component={About} />
+              <Route path="/statistics" component={Statistics} />
               {/* <Route path="/donate" component={Donate} /> */}
               <Route
                 path="/donate"
@@ -67,8 +67,8 @@ class App extends React.Component {
                   return null;
                 }}
               />
-              <Route path="/statistics" component={Statistics} />
               <Route path="/blog" component={Blog} />
+              <Route path="/about" component={About} />
             </Switch>
             {/* <Panel className="app_panel" /> */}
           </Router>
