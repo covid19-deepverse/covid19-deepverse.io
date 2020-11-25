@@ -146,18 +146,6 @@ class Statistics extends React.Component {
           </div>
         </div>
         <div className="section3-section4">
-          <div className="section3">
-            <div className="section3-title">Country Overviews</div>
-            <Table2 />
-            {/* <div className="countries_stat" id="countries_stat">
-              <tr className="countries_stat-table">
-                <th className="table-country">Country</th>
-                <th className="table-confirmed">Confirmed</th>
-                <th className="table-recovered">Recovered</th>
-                <th className="table-deaths">Deaths</th>
-              </tr>
-            </div> */}
-          </div>
           <div className="section4">
             <div className="section4-graph">
               <div className="section4-title">Graph</div>
@@ -197,6 +185,18 @@ class Statistics extends React.Component {
                   )}
                 </div>
               </div>
+            </div> */}
+          </div>
+          <div className="section3">
+            <div className="section3-title">Country Overviews</div>
+            <Table2 />
+            {/* <div className="countries_stat" id="countries_stat">
+              <tr className="countries_stat-table">
+                <th className="table-country">Country</th>
+                <th className="table-confirmed">Confirmed</th>
+                <th className="table-recovered">Recovered</th>
+                <th className="table-deaths">Deaths</th>
+              </tr>
             </div> */}
           </div>
         </div>
