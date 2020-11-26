@@ -21,8 +21,8 @@ class Blog extends React.Component {
       showReply9: false,
       showReply10: false,
       showReply11: false,
-      Items:[],
-      Tmp:[]
+      Items:[]
+
     };
      readdata_Success=async(data)=>{
        this.setState({Items:data})
@@ -31,7 +31,17 @@ class Blog extends React.Component {
       console.log("Error")
 
     }
+      Update_Success=async(data)=>{
+       await this.Fetchdata()
+    }
+     Update_Fail=async(e)=>{
+      console.log("Error")
 
+    }
+
+   async Fetchdata(){
+      await Database.readdata(this.readdata_Success,this.readdata_Fail)
+    }
    async componentDidMount(){
        await Database.readdata(this.readdata_Success,this.readdata_Fail)
     }
@@ -72,8 +82,7 @@ class Blog extends React.Component {
                       <div className="content-title">
                           <a onClick={()=>{
                             let tmp={Show}
-
-                          
+                            database.UpdateShow(Id,Show,this.Update_Success,this.Update_Fail)
                           }} href="#">
                           {Header}
                           </a>

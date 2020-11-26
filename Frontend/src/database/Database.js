@@ -35,10 +35,14 @@ class Database{
         read_Blog_fail('Error getting documents', err);
       });
     }
-    async UpdateShow(id,Show){
-      const res = await firebase.firestore().collection("Blog").doc(id).update({
+    async UpdateShow(id,Show,Update_Succeess,Update_Fail){
+       await firebase.firestore().collection("Blog").doc(id).update({
        Show:!Show
-      });
+      }).then(()=>{
+          Update_Succeess()
+      }).catch(()=>{
+          Update_Fail()
+      })
     }
 
 }
