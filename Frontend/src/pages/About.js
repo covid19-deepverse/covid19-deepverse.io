@@ -5,7 +5,6 @@
 
 import React from 'react';
 import * as AiIcons from 'react-icons/ai';
-import * as HiIcons from 'react-icons/hi';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 
@@ -13,7 +12,14 @@ function About() {
   return (
     <div className="about">
       <div className="about-top">
-        <div className="about-top-left"></div>
+        <div className="about-top-left">
+          <div className="about-top-left-title">DEEPVERSE.IO</div>
+          <div className="about-top-left-pages">Home</div>
+          <div className="about-top-left-pages">Statistics</div>
+          <div className="about-top-left-pages">Donate</div>
+          <div className="about-top-left-pages">Blog</div>
+          <div className="about-top-left-pages">About Us</div>
+        </div>
         <div className="about-top-right">
           <h1>ABOUT THE PROJECT</h1>
           <p>
