@@ -10,12 +10,10 @@ import { Scale } from 'styled-loaders-react';
 
 // IMPORT PAGES
 import Home from './pages/Home';
+import Statistics from './pages/Statistics';
+import Blog from './pages/Blog';
 import About from './pages/About';
 // import Donate from './pages/Donate';
-import News from './pages/News';
-import Statistics from './pages/Statistics';
-import Thailand from './pages/Thailand';
-import Blog from './pages/Blog';
 
 // IMPORT SCSS
 import './assets/sass/_main.scss';
@@ -44,8 +42,8 @@ class App extends React.Component {
     //   console.log(res)
     // })
   }
-  componentWillUnmount(){
-    window.removeEventListener('resize',this.resizeLisener)
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeLisener);
   }
   render() {
     return (
@@ -59,20 +57,18 @@ class App extends React.Component {
             <Navbar className="app_navbar" />
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/about" component={About} />
+              <Route path="/statistics" component={Statistics} />
               {/* <Route path="/donate" component={Donate} /> */}
               <Route
                 path="/donate"
                 component={() => {
                   window.location.href =
-                    'https://www.buymeacoffee.com/khawoat6'
+                    'https://www.buymeacoffee.com/khawoat6';
                   return null;
                 }}
               />
-              <Route path="/news" component={News} />
-              <Route path="/statistics" component={Statistics} />
-              <Route path="/thailand" component={Thailand} />
               <Route path="/blog" component={Blog} />
+              <Route path="/about" component={About} />
             </Switch>
             {/* <Panel className="app_panel" /> */}
           </Router>

@@ -1,7 +1,4 @@
 import React from 'react';
-import numeral from 'numeral';
-import { Table } from '@material-ui/core';
-
 class Table2 extends React.Component {
   state = {
     Data: [],
@@ -53,22 +50,6 @@ class Table2 extends React.Component {
           </tr>
         ))}
       </div>
-
-      // <div className="app_left-top-table">
-      //   {countries.map(({ country, cases }) => (
-      //     <tr>
-      //       <td>
-      //         <strong className="country-name">{country}</strong>
-      //       </td>
-      //       <td>
-      //         {/* <strong>{cases}</strong> */}
-      //         <strong className="cases-percent">
-      //           {numeral(cases).format('0,0')}
-      //         </strong>
-      //       </td>
-      //     </tr>
-      //   ))}
-      // </div>
     );
   }
 }
