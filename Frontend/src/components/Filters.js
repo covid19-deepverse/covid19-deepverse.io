@@ -1,5 +1,12 @@
+/**
+ * Filter Component
+ *
+ */
+
 import React from 'react';
 import { IconContext } from 'react-icons';
+import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 
 function Filters({ handleCaseTypeChange }) {

@@ -6,66 +6,46 @@
 import React from 'react';
 import * as IoIcons from 'react-icons/io';
 import database from '../database/Database';
-import Database from '../database/Database'
+import Database from '../database/Database';
 class Blog extends React.Component {
- 
-    state = {
-      showReply1: false,
-      showReply2: false,
-      showReply3: false,
-      showReply4: false,
-      showReply5: false,
-      showReply6: false,
-      showReply7: false,
-      showReply8: false,
-      showReply9: false,
-      showReply10: false,
-      showReply11: false,
-      Items:[],
-      Tmp:[]
+  state = {
+    Items: [],
+    Tmp: [],
+  };
+  readdata_Success = async (data) => {
+    this.setState({ Items: data });
+    this.state.Tmp.push(false);
+    data.map(({ Show }) => {
+      this.state.Tmp.push(Show);
+    });
 
-    };
-     readdata_Success=async(data)=>{
-       this.setState({Items:data})
-       this.state.Tmp.push(false)
-      data.map(({Show})=>{
-       this.state.Tmp.push(Show)
-      })
-       
-       console.log("Size :"+this.state.Tmp)
-    }
-     readdata_Fail=async(e)=>{
-      console.log("Error")
+    console.log('Size :' + this.state.Tmp);
+  };
+  readdata_Fail = async (e) => {
+    console.log('Error');
+  };
+  Update_Success = async (data) => {
+    await this.Fetchdata();
+  };
+  Update_Fail = async (e) => {
+    console.log('Error');
+  };
 
-    }
-      Update_Success=async(data)=>{
-       await this.Fetchdata()
-    }
-     Update_Fail=async(e)=>{
-      console.log("Error")
+  async Fetchdata() {
+    await Database.readdata(this.readdata_Success, this.readdata_Fail);
+  }
+  async componentDidMount() {
+    await Database.readdata(this.readdata_Success, this.readdata_Fail);
+  }
 
-    }
-
-   async Fetchdata(){
-      await Database.readdata(this.readdata_Success,this.readdata_Fail)
-    }
-   async componentDidMount(){
-       await Database.readdata(this.readdata_Success,this.readdata_Fail)
-       
-    }
-  
-  // onClick(e) {
-  //   e.preventDefault();
-  //   this.setState({ showReply: !this.state.showReply });
-  // }
   render() {
-    const{Items,Tmp}=this.state
+    const { Items, Tmp } = this.state;
     return (
       <div className="blog-contents">
         <div className="blog-contents-top">
           <div className="blog-contents-top-left">
             <div className="blog-contents-top-left-logo">
-              <IoIcons.IoMdPaper size="1.7em" />
+              <IoIcons.IoMdPaper size="3em" />
             </div>
             <div className="blog-contents-top-left-title">
               <p>
@@ -83,33 +63,35 @@ class Blog extends React.Component {
 
         <div className="blog-contents-bottom">
           <div className="hide-show-content">
-          {Items.map(({Id,Header,Para,Show})=>(
-            
+            {Items.map(({ Id, Header, Para, Show }) => (
               <>
-                  <div className="contents">
-                      <div className="content-number">{Id}</div>
-                      <div className="content-title">
-                          <a onClick={()=>{
-                            let tmp={Show}
-                            Tmp[Id]=!Tmp[Id]
-                         
-                            // database.UpdateShow(Id,Show,this.Update_Success,this.Update_Fail)
-                          }} href="#">
-                          {Header}
-                          </a>
-                      </div>
+
+                <div className="contents">
+                  <div className="content-number">{Id}</div>
+                  <div className="content-title">
+                    <a
+                      onClick={() => {
+                        let tmp = { Show };
+                        Tmp[Id] = !Tmp[Id];
+                        console.log('ID:' + Id + ' Val:' + Tmp[Id]);
+                        // database.UpdateShow(Id,Show,this.Update_Success,this.Update_Fail)
+                      }}
+                      href="#"
+                    >
+                      {Header}
+                    </a>
+
                   </div>
-                  <div className="content-show">
-                      {Tmp[Id]&& (
+                </div>
+                <div className="content-show">
+                  {Tmp[Id] && (
                     <p>
-                      <dd>{ Para}</dd>
-                    
+                      <dd>{Para}</dd>
                     </p>
                   )}
-                  </div>                   
-                </>                                
-              ))}
-
+                </div>
+              </>
+            ))}
           </div>
         </div>
       </div>
