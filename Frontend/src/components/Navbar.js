@@ -7,6 +7,10 @@ import Search from './Search';
 // import DonateBtn from './DonateBnt';
 import Settings from './Settings';
 
+import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
+import * as FiIcons from 'react-icons/fi';
+
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
@@ -40,6 +44,30 @@ function Navbar() {
           </ul>
           <Settings />
           <div className="footer">
+            <div className="header__social-media">
+              {/* <div>
+                <a
+                  href="https://www.facebook.com/phattaraphon.oat/"
+                  target="_blank"
+                >
+                  <FiIcons.FiFacebook size="1.2em" />
+                </a>
+              </div>
+              <div>
+                <a href="https://www.instagram.com/khawoat6/" target="_blank">
+                  <FaIcons.FaInstagram size="1.3em" />
+                </a>
+              </div> */}
+              <div>
+                <a
+                  href="https://github.com/covid19-deepverse/covid19-deepverse.io"
+                  target="_blank"
+                >
+                  <AiIcons.AiFillGithub size="1.3em" />
+                  <strong>Open Source</strong>
+                </a>
+              </div>
+            </div>
             <h1 className="footer__organization">
               @2020 deepverse.io, All Right Reserved. Terms | Privacy | Cookie
               Policy
