@@ -82,11 +82,16 @@ function About() {
                   </a>
                 </div>
                 <div>
+                  <a href="https://github.com/Khawoat6" target="_blank">
+                    <AiIcons.AiFillGithub size="1.3em" />
+                  </a>
+                </div>
+                <div>
                   <a
-                    href="https://github.com/covid19-deepverse/covid19-deepverse.io"
+                    href="https://www.linkedin.com/in/phattaraphon/"
                     target="_blank"
                   >
-                    <AiIcons.AiFillGithub size="1.3em" />
+                    <FaIcons.FaLinkedin size="1.3em" />
                   </a>
                 </div>
                 <div>
