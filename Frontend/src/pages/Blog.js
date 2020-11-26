@@ -92,7 +92,7 @@ class Blog extends React.Component {
                           <a onClick={()=>{
                             let tmp={Show}
                             Tmp[Id]=!Tmp[Id]
-                            console.log("ID:"+Id+" Val:"+Tmp[Id])
+                         
                             // database.UpdateShow(Id,Show,this.Update_Success,this.Update_Fail)
                           }} href="#">
                           {Header}
