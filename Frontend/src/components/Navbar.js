@@ -1,12 +1,18 @@
+/**
+ * Navbar Component
+ *
+ */
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as HiIcons from 'react-icons/hi';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
-import Search from './Search';
-// import DonateBtn from './DonateBnt';
-import Settings from './Settings';
 
+import Search from './Search';
+import Settings from './Settings';
+// import DonateBtn from './DonateBnt';
+
+import * as HiIcons from 'react-icons/hi';
 import * as AiIcons from 'react-icons/ai';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
@@ -19,7 +25,7 @@ function Navbar() {
     <>
       <IconContext.Provider value={{ color: '#ffffff' }}>
         <div className="navbar">
-          <Link to="#" className="menu-bars">
+          <Link to="#" className="menu-bars-home">
             <HiIcons.HiOutlineMenuAlt1 onClick={showSidebar} />
           </Link>
           <Search />
@@ -32,6 +38,18 @@ function Navbar() {
                 <HiIcons.HiOutlineX />
               </Link>
             </li>
+            <div className="deepverse__logo">
+              DEEPVERSE.IO
+              <hr
+                style={{
+                  color: '#6D7F99',
+                  backgroundColor: '#6D7F99',
+                  height: 0.1,
+                  borderColor: '#6D7F99',
+                  marginTop: 20,
+                }}
+              />
+            </div>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
@@ -42,7 +60,7 @@ function Navbar() {
               );
             })}
           </ul>
-          <Settings />
+
           <div className="footer">
             <div className="header__social-media">
               {/* <div>
@@ -58,6 +76,7 @@ function Navbar() {
                   <FaIcons.FaInstagram size="1.3em" />
                 </a>
               </div> */}
+              {/* <Settings /> */}
               <div>
                 <a
                   href="https://github.com/covid19-deepverse/covid19-deepverse.io"
