@@ -21,11 +21,18 @@ class Blog extends React.Component {
       showReply9: false,
       showReply10: false,
       showReply11: false,
-      Items:[]
+      Items:[],
+      Tmp:[]
 
     };
      readdata_Success=async(data)=>{
        this.setState({Items:data})
+       this.state.Tmp.push(false)
+      data.map(({Show})=>{
+       this.state.Tmp.push(Show)
+      })
+       
+       console.log("Size :"+this.state.Tmp)
     }
      readdata_Fail=async(e)=>{
       console.log("Error")
@@ -44,6 +51,7 @@ class Blog extends React.Component {
     }
    async componentDidMount(){
        await Database.readdata(this.readdata_Success,this.readdata_Fail)
+       
     }
   
   // onClick(e) {
@@ -51,7 +59,7 @@ class Blog extends React.Component {
   //   this.setState({ showReply: !this.state.showReply });
   // }
   render() {
-    const{Items}=this.state
+    const{Items,Tmp}=this.state
     return (
       <div className="blog-contents">
         <div className="blog-contents-top">
@@ -76,20 +84,23 @@ class Blog extends React.Component {
         <div className="blog-contents-bottom">
           <div className="hide-show-content">
           {Items.map(({Id,Header,Para,Show})=>(
+            
               <>
                   <div className="contents">
                       <div className="content-number">{Id}</div>
                       <div className="content-title">
                           <a onClick={()=>{
                             let tmp={Show}
-                            database.UpdateShow(Id,Show,this.Update_Success,this.Update_Fail)
+                            Tmp[Id]=!Tmp[Id]
+                            console.log("ID:"+Id+" Val:"+Tmp[Id])
+                            // database.UpdateShow(Id,Show,this.Update_Success,this.Update_Fail)
                           }} href="#">
                           {Header}
                           </a>
                       </div>
                   </div>
                   <div className="content-show">
-                      {Show&& (
+                      {Tmp[Id]&& (
                     <p>
                       <dd>{ Para}</dd>
                     
