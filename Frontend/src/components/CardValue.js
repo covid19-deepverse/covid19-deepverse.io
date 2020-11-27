@@ -11,11 +11,7 @@ export default class CardValue extends React.Component {
 
   async componentDidMount() {
     const fetchdata = await axios.get('/getCountry');
-    const modify = {
-      confirmed: fetchdata.data.confirmed.value,
-      recovered: fetchdata.data.recovered.value,
-      deaths: fetchdata.data.deaths.value,
-    };
+  
     // console.log(modify);
     this.setState({ con: fetchdata.data.confirmed.value });
     this.setState({ re: fetchdata.data.recovered.value });

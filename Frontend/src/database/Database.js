@@ -24,7 +24,7 @@ class Database{
     async readdata(read_Blog_success,read_Blog_fail)
     {
       let Array=[]
-      let getDoc =await firebase.firestore().collection("Blog").get().then(snapshot => {
+      await firebase.firestore().collection("Blog").get().then(snapshot => {
         snapshot.forEach(doc => {
           
           Array.push(doc.data())

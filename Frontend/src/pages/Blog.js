@@ -5,7 +5,7 @@
 
 import React from 'react';
 import * as IoIcons from 'react-icons/io';
-import database from '../database/Database';
+
 import Database from '../database/Database';
 class Blog extends React.Component {
   state = {
