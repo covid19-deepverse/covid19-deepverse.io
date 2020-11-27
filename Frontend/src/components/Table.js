@@ -1,15 +1,9 @@
 import React from 'react';
 import numeral from 'numeral';
-import { Scale } from 'styled-loaders-react';
-
-
 
 function Table({ countries }) {
-  
   return (
-    
     <div className="app_left-top-table">
-      
       {countries.map(({ country, cases }) => (
         <tr>
           <td>
