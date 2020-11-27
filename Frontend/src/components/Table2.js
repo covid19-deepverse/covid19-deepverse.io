@@ -5,7 +5,7 @@ class Table2 extends React.Component {
   };
 
   async componentDidMount() {
-    let table = document.getElementById('countries_stat');
+
 
     fetch(
       'https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php',
