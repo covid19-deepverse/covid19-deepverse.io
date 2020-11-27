@@ -4,11 +4,11 @@ import { Scale } from 'styled-loaders-react';
 import axios from 'axios';
 import Table from './Table';
 import CardValue from './CardValue';
-import Lastup from './Lastup'
+import Lastup from './Lastup';
 
 function SelectCountry({ handleCountryChange, country, countriesData }) {
   // const [countries, setCountries] = useState([]);
- 
+
   // const fetchCountry = async () => {
   //   try {
   //     const data = await axios.get('/getCountriesCode');
@@ -19,7 +19,6 @@ function SelectCountry({ handleCountryChange, country, countriesData }) {
   //     console.log(error);
   //   }
   // };
-
 
   // useEffect(async () => {
   //   const fetchAPI = async () => {
@@ -47,8 +46,7 @@ function SelectCountry({ handleCountryChange, country, countriesData }) {
         <div className="loading-data-gif">
           <Scale color="#50E3C2" size="20px" duration="3s" />
         </div>
-        {/* <p className="loading-data-title">LAST UPDATED : {new Date(lastUp).toDateString()}</p>*/}
-        <Lastup/>
+        <Lastup />
       </div>
       <hr
         style={{
