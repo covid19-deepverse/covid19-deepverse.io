@@ -171,7 +171,7 @@ class Statistics extends React.Component {
                 <div className="section4-title">Graph Overviews</div>
                 <div className="section4-graph-show">
                   <div className="section4-graph-chart">
-                    <StackedBar data={data} />
+                    <StackedBar  />
                   </div>
                 </div>
               </div>
@@ -183,7 +183,7 @@ class Statistics extends React.Component {
                   <HorizontalBarChart data={data} />
                 </div>
                 <div className="section2-center">
-                  <DoughnutChart data={data} />
+                  <DoughnutChart />
                 </div>
                 <div className="section2-right">
                   <PieChart data={data} />
