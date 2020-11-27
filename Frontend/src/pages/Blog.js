@@ -65,6 +65,7 @@ class Blog extends React.Component {
           <div className="hide-show-content">
             {Items.map(({ Id, Header, Para, Show }) => (
               <>
+
                 <div className="contents">
                   <div className="content-number">{Id}</div>
                   <div className="content-title">
@@ -79,6 +80,7 @@ class Blog extends React.Component {
                     >
                       {Header}
                     </a>
+
                   </div>
                 </div>
                 <div className="content-show">

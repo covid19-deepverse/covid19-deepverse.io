@@ -171,6 +171,22 @@ app.get('/getAllData',(req,res)=>{
         })
 
 })
+app.get('/getDaily2',(req,res)=>{
+  
+  
+    let changeableUrl=url2;
+  
+    request('https://pomber.github.io/covid19/timeseries.json',
+        function(error,response,body){
+            if(!error && response.statusCode ==200){
+                var parsedBody=JSON.parse(body)
+                
+                res.send(parsedBody.Thailand)
+                
+            }
+        })
+
+})
 
   
 
