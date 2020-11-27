@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import Filters from '../components/Filters';
 import MapView from '../components/MapView';
 import SelectCountry from '../components/Select';
-import { sortData, prettyPrintStat } from '../components/util';
+import { sortData } from '../components/util';
 
 import axios from 'axios';
 
@@ -21,16 +21,8 @@ function Home() {
   const [mapCountries, setMapCountries] = useState([]);
   const [tableData, setTableData] = useState([]);
 
-  const [countryData, setcountryData] = useState([]);
 
-  const fetchCountryData = async () => {
-    try {
-      const data = await axios.get('/getCountry');
-      return data.data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
   const fetchCountry = async () => {
     try {
       const data = await axios.get('/getCountriesData');
@@ -45,7 +37,6 @@ function Home() {
   useEffect(() => {
     const fetchAPI = async () => {
       setMapCountries(await fetchCountry());
-      setcountryData(await fetchCountryData());
       const sortedData = sortData(await fetchCountry());
       setTableData(sortedData);
     };

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { MenuItem, FormControl, Select } from '@material-ui/core';
+import React from 'react';
+
 import { Scale } from 'styled-loaders-react';
-import axios from 'axios';
+
 import Table from './Table';
 import CardValue from './CardValue';
 import Lastup from './Lastup';
