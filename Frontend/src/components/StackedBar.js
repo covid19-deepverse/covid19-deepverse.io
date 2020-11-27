@@ -58,7 +58,9 @@ const options = {
 const StackedBar = () => (
   <>
     <div className="header">
-      <h1 className="title">Past 14 Days Chart</h1>
+      <h1 className="title">
+        Past 14 Days Chart : <strong>Thailand</strong>
+      </h1>
     </div>
     <Bar data={data} options={options} />
   </>

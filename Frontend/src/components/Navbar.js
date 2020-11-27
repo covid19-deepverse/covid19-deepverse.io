@@ -9,13 +9,13 @@ import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
 
 import Search from './Search';
-import Settings from './Settings';
+// import Settings from './Settings';
 // import DonateBtn from './DonateBnt';
 
 import * as HiIcons from 'react-icons/hi';
 import * as AiIcons from 'react-icons/ai';
-import * as FaIcons from 'react-icons/fa';
-import * as FiIcons from 'react-icons/fi';
+// import * as FaIcons from 'react-icons/fa';
+// import * as FiIcons from 'react-icons/fi';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
