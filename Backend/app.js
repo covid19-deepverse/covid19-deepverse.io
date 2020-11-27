@@ -181,7 +181,7 @@ app.get('/getDaily2',(req,res)=>{
             if(!error && response.statusCode ==200){
                 var parsedBody=JSON.parse(body)
                 
-                res.send(parsedBody.Thailand)
+                res.send(parsedBody.Thailand.slice(-14))
                 
             }
         })
