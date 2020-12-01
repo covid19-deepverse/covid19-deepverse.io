@@ -19,6 +19,8 @@
 
 ### ✨ [Demo](https://github.com/covid19-deepverse/covid19-deepverse.io)
 
+![Imgur](https://imgur.com/C7jx57b.png)
+
 ## Install
 
 ```sh
