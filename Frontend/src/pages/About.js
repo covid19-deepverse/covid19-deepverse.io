@@ -17,7 +17,7 @@ function About() {
           <div className="about-top-left-pages">Home</div>
           <div className="about-top-left-pages">Statistics</div>
           <div className="about-top-left-pages">Donate</div>
-          <div className="about-top-left-pages">Blog</div>
+          <div className="about-top-left-pages">FAQ</div>
           <div className="about-top-left-pages">About Us</div>
         </div>
         <div className="about-top-right">

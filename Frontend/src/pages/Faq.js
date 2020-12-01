@@ -7,7 +7,7 @@ import React from 'react';
 import * as IoIcons from 'react-icons/io';
 
 import Database from '../database/Database';
-class Blog extends React.Component {
+class Faq extends React.Component {
   state = {
     Items: [],
     Tmp: [],
@@ -65,7 +65,6 @@ class Blog extends React.Component {
           <div className="hide-show-content">
             {Items.map(({ Id, Header, Para, Show }) => (
               <>
-
                 <div className="contents">
                   <div className="content-number">{Id}</div>
                   <div className="content-title">
@@ -80,7 +79,6 @@ class Blog extends React.Component {
                     >
                       {Header}
                     </a>
-
                   </div>
                 </div>
                 <div className="content-show">
@@ -98,4 +96,4 @@ class Blog extends React.Component {
     );
   }
 }
-export default Blog;
+export default Faq;
