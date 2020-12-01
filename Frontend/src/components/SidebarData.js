@@ -24,8 +24,8 @@ export const SidebarData = [
     cName: 'nav-text',
   },
   {
-    title: 'Blog',
-    path: '/blog',
+    title: 'FAQ',
+    path: '/faq',
     icon: <FiIcons.FiBookmark />,
     cName: 'nav-text',
   },

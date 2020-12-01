@@ -11,7 +11,7 @@ import { Scale } from 'styled-loaders-react';
 // IMPORT PAGES
 import Home from './pages/Home';
 import Statistics from './pages/Statistics';
-import Blog from './pages/Blog';
+import Faq from './pages/Faq';
 import About from './pages/About';
 // import Donate from './pages/Donate';
 
@@ -67,7 +67,7 @@ class App extends React.Component {
                   return null;
                 }}
               />
-              <Route path="/blog" component={Blog} />
+              <Route path="/faq" component={Faq} />
               <Route path="/about" component={About} />
             </Switch>
             {/* <Panel className="app_panel" /> */}

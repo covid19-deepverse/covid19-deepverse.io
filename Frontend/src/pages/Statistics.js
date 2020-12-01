@@ -171,7 +171,7 @@ class Statistics extends React.Component {
                 <div className="section4-title">Graph Overviews</div>
                 <div className="section4-graph-show">
                   <div className="section4-graph-chart">
-                    <StackedBar  />
+                    <StackedBar />
                   </div>
                 </div>
               </div>
