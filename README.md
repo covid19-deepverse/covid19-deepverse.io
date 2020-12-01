@@ -46,7 +46,7 @@ npm test
 - Website: http://khawoat6.github.io/
 - Twitter: [@phattaraphon_c](https://twitter.com/phattaraphon_c)
 - Github: [@covid19-deepverse](https://github.com/covid19-deepverse)
-- LinkedIn: [@phattaraphon](https://linkedin.com/in/phattaraphon)
+- LinkedIn: [@phattaraphon](https://linkedin.com/in/phattaraphon) and [@natttapon-phumutta](https://linkedin.com/in/natttapon-phumutta)
 
 ## 🤝 Contributing
 
