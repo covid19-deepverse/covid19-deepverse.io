@@ -1,36 +1,22 @@
 import React from 'react';
+import axios from 'axios';
+
 class Table2 extends React.Component {
   state = {
     Data: [],
   };
 
   async componentDidMount() {
-
-
-    fetch(
-      'https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php',
-      {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
-          'x-rapidapi-key':
-            'daf35fb907msh5943652ba5bddf2p1aa387jsnd6bac0794a2b',
-        },
-      }
-    )
-      .then((response) =>
-        response.json().then((data) => {
-          //   console.log('====================================');
-          this.setState({ Data: data.countries_stat });
-          console.log(this.state.Data);
-
-          //   console.log('====================================');
-        })
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const { data } = await axios.get(
+        'https://disease.sh/v3/covid-19/countries?sort=cases'
+      );
+      this.setState({ Data: data.slice(0, 20) });
+    } catch (error) {
+      console.error('Failed to fetch countries table data:', error);
+    }
   }
+
   render() {
     const { Data } = this.state;
     return (
@@ -41,12 +27,12 @@ class Table2 extends React.Component {
           <th className="table-recovered">Recovered</th>
           <th className="table-deaths">Deaths</th>
         </tr>
-        {Data.map(({ country_name, cases, deaths, total_recovered }) => (
-          <tr className="table-th">
-            <th className="country-th">{country_name}</th>
-            <th className="confirmed-th">{cases}</th>
-            <th className="recovered-th">{deaths}</th>
-            <th className="deaths-th">{total_recovered}</th>
+        {Data.map(({ country, cases, recovered, deaths }, i) => (
+          <tr className="table-th" key={i}>
+            <th className="country-th">{country}</th>
+            <th className="confirmed-th">{cases ? cases.toLocaleString() : '-'}</th>
+            <th className="recovered-th">{recovered ? recovered.toLocaleString() : '-'}</th>
+            <th className="deaths-th">{deaths ? deaths.toLocaleString() : '-'}</th>
           </tr>
         ))}
       </div>
