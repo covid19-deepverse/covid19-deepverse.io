@@ -11,6 +11,8 @@ import { sortData } from '../components/util';
 
 import axios from 'axios';
 
+const API_BASE = 'https://disease.sh/v3/covid-19';
+
 function Home() {
   const [country, setCountry] = useState('worldwide');
   const [casesType, setCasesType] = useState('cases');
@@ -21,65 +23,34 @@ function Home() {
   const [mapCountries, setMapCountries] = useState([]);
   const [tableData, setTableData] = useState([]);
 
-
-
-  const fetchCountry = async () => {
-    try {
-      const data = await axios.get('/getCountriesData');
-
-      // console.log("data: "+data.data);
-
-      return data.data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
     const fetchAPI = async () => {
-      setMapCountries(await fetchCountry());
-      const sortedData = sortData(await fetchCountry());
-      setTableData(sortedData);
+      try {
+        const { data } = await axios.get(`${API_BASE}/countries`);
+        setMapCountries(data);
+        setTableData(sortData(data));
+      } catch (error) {
+        console.error('Failed to fetch countries data:', error);
+      }
     };
     fetchAPI();
-  }, [setMapCountries]);
+  }, []);
 
-  const fetchCountry2 = async (countryCode) => {
+  const handleCountryChange = async (countryCode) => {
     try {
-      await axios.get(`/getCountriesData/${countryCode}`)
-        .then((res) => {
-       
-          console.log(res.data.countryInfo.lat, res.data.countryInfo.long);
-          return setMapCenter([
-            res.data.countryInfo.lat,
-            res.data.countryInfo.long,
-          ]);
-        })
-        .then(() => {
-          return setCountry(countryCode);
-        })
-        .then(() => {
-          return setMapZoom(4);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      const { data } = await axios.get(`${API_BASE}/countries/${countryCode}`);
+      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+      setCountry(countryCode);
+      setMapZoom(4);
     } catch (error) {
-      console.log(error);
+      console.error('Failed to fetch country data:', error);
     }
   };
 
-  const handleCountryChange = async (event) => {
-    const countryCode = event;
-    console.log('YOOOO >>>>', countryCode);
-
-    await fetchCountry2(countryCode);
-
-  };
-  const handleCaseTypeChange = async (event) => {
+  const handleCaseTypeChange = (event) => {
     setCasesType(event);
-
-    console.log(event);
   };
+
   return (
     <div className="home">
       <Filters handleCaseTypeChange={handleCaseTypeChange} />
@@ -95,7 +66,6 @@ function Home() {
         handleCountryChange={handleCountryChange}
         country={country}
         countriesData={tableData}
-        // countryData={countryData}
       />
     </div>
   );

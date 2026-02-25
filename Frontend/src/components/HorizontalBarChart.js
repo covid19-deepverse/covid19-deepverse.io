@@ -1,57 +1,42 @@
 import React from 'react';
 import { HorizontalBar } from '@reactchartjs/react-chart.js';
-
 import axios from 'axios';
 
+const ASIAN_COUNTRIES = ['Iran', 'Indonesia', 'Japan', 'China', 'Singapore', 'South Korea', 'Thailand'];
+const COUNTRY_CODES = ['Iran', 'Indonesia', 'Japan', 'China', 'Singapore', 'South%20Korea', 'Thailand'];
 
 class HorizontalBarChart extends React.Component {
-
   state = {
     DataforHorizontal: [],
   };
+
   async componentDidMount() {
     try {
-      const fetchdataIran = await axios.get('/getCountry/Iran');
-      const fetchdataIndonesia = await axios.get('/getCountry/Indonesia');
-      const fetchdataJapan = await axios.get('/getCountry/Japan');
-      const fetchdataChina = await axios.get('/getCountry/China');
-      const fetchdataSingapore = await axios.get('/getCountry/Singapore');
-      const fetchdataKorea = await axios.get('/getCountry/Korea, South');
-      const fetchdataThai = await axios.get('/getCountry/Thailand');
-
-      // this.setState({data:fetchdata.data});
-   
-
-      const dataset = [
-        fetchdataIran.data.confirmed.value ,
-        fetchdataIndonesia.data.confirmed.value ,
-        fetchdataJapan.data.confirmed.value ,
-        fetchdataChina.data.confirmed.value ,
-        fetchdataSingapore.data.confirmed.value ,
-        fetchdataKorea.data.confirmed.value ,
-        fetchdataThai.data.confirmed.value ,
-      ];
-
-      // console.log(dataset);
-      this.setState({ DataforHorizontal: dataset });
-    } catch (error) {}
+      const { data } = await axios.get(
+        `https://disease.sh/v3/covid-19/countries/${COUNTRY_CODES.join(',')}`
+      );
+      // Sort result to match ASIAN_COUNTRIES order
+      const sorted = ASIAN_COUNTRIES.map((name) =>
+        data.find(
+          (d) => d.country === name || d.country === name.replace('%20', ' ')
+        )
+      );
+      this.setState({
+        DataforHorizontal: sorted.map((d) => (d ? d.cases : 0)),
+      });
+    } catch (error) {
+      console.error('Failed to fetch Asian countries data:', error);
+    }
   }
-  render(){
+
+  render() {
     const { DataforHorizontal } = this.state;
 
     const data = {
-      labels: [
-        'Iran',
-        'Indonesia',
-        'Japan',
-        'China',
-        'Singapore',
-        'South Korea',
-        'Thailand',
-      ],
+      labels: ASIAN_COUNTRIES,
       datasets: [
         {
-          label: 'Comfirmed value',
+          label: 'Confirmed value',
           data: DataforHorizontal,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -75,7 +60,7 @@ class HorizontalBarChart extends React.Component {
         },
       ],
     };
-    
+
     const options = {
       scales: {
         yAxes: [
@@ -87,16 +72,16 @@ class HorizontalBarChart extends React.Component {
         ],
       },
     };
-    return(
+
+    return (
       <>
-    <div className="header">
-      <h1 className="title">Confirmed cases by Country in ASIA</h1>
-    </div>
-    <HorizontalBar data={data} options={options} />
-  </>
-    )
+        <div className="header">
+          <h1 className="title">Confirmed cases by Country in ASIA</h1>
+        </div>
+        <HorizontalBar data={data} options={options} />
+      </>
+    );
   }
-  
 }
 
 export default HorizontalBarChart;

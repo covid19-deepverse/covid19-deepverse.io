@@ -15,15 +15,25 @@ import HorizontalBarChart from '../components/HorizontalBarChart';
 import CountryPicker from '../components/CountryPicker';
 import Table2 from '../components/Table2';
 
-// IMPORT COMPONENTS FOR HIDE
-// import DonutChart from '../components/DonutChart';
-// import LineChart2 from '../components/LineChart2';
-// import StackedAreaChart from '../components/StackedAreaChart';
-// import CustomActiveShapePieChart from '../components/CustomActiveShapePieChart';
-
 // IMPORT LIBRARY
 import axios from 'axios';
 import CountUp from 'react-countup';
+
+const API_BASE = 'https://disease.sh/v3/covid-19';
+
+// Normalize disease.sh format to expected component format
+const normalizeGlobal = (raw) => ({
+  confirmed: { value: raw.cases },
+  recovered: { value: raw.recovered },
+  deaths: { value: raw.deaths },
+  lastUpdate: new Date(raw.updated).toISOString(),
+});
+
+const normalizeCountry = (raw) => ({
+  confirmed: { value: raw.cases },
+  recovered: { value: raw.recovered },
+  deaths: { value: raw.deaths },
+});
 
 class Statistics extends React.Component {
   state = {
@@ -36,46 +46,38 @@ class Statistics extends React.Component {
     Fatality: '',
     RecoveredRate: '',
   };
+
   handleCountryChange = async (country) => {
-    const fetchdata = await axios.get(`/getCountry/${country}`);
-    console.log(fetchdata.data);
-    this.setState({ data: fetchdata.data, country: country });
-    //fetch data
-    // set the state
+    try {
+      const { data: raw } = await axios.get(`${API_BASE}/countries/${country}`);
+      this.setState({ data: normalizeCountry(raw), country });
+    } catch (error) {
+      console.error('Failed to fetch country data:', error);
+    }
   };
 
   async componentDidMount() {
-    const fetchdata = await axios.get('/getCountry');
-    this.setState({
-      data: fetchdata.data,
-      ConfirmedData: fetchdata.data.confirmed.value,
-      RecoveriesData: fetchdata.data.recovered.value,
-      DeathData: fetchdata.data.deaths.value,
-    });
-    this.setState({
-      ActiveData:
-        Number(this.state.ConfirmedData) -
-        (Number(this.state.RecoveriesData) + Number(this.state.DeathData)),
-    });
-    this.setState({
-      Fatality: (
-        (Number(this.state.DeathData) / Number(this.state.RecoveriesData)) *
-        100
-      ).toFixed(2),
-    });
-    this.setState({
-      RecoveredRate: (
-        (Number(this.state.RecoveriesData) / Number(this.state.ConfirmedData)) *
-        100
-      ).toFixed(2),
-    });
+    try {
+      const { data: raw } = await axios.get(`${API_BASE}/all`);
+      const confirmed = raw.cases;
+      const recovered = raw.recovered;
+      const deaths = raw.deaths;
+      this.setState({
+        data: normalizeGlobal(raw),
+        ConfirmedData: confirmed,
+        RecoveriesData: recovered,
+        DeathData: deaths,
+        ActiveData: confirmed - (recovered + deaths),
+        Fatality: ((deaths / recovered) * 100).toFixed(2),
+        RecoveredRate: ((recovered / confirmed) * 100).toFixed(2),
+      });
+    } catch (error) {
+      console.error('Failed to fetch global data:', error);
+    }
+  }
 
-    console.log('RecoveredRate: ' + this.state.RecoveredRate);
-    console.log(this.state.data);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.resizeLisener);
-  }
+  componentWillUnmount() {}
+
   render() {
     const {
       data,
@@ -87,7 +89,7 @@ class Statistics extends React.Component {
       Fatality,
       RecoveredRate,
     } = this.state;
-    console.log('Country :' + country);
+
     return (
       <>
         <div className="statistics">

@@ -2,7 +2,7 @@
   "name": "covid19-tracker",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "homepage": "https://covid19-deepverse.github.io/covid19-deepverse.io",
   "dependencies": {
     "@devexpress/dx-react-chart": "^2.7.3",
     "@devexpress/dx-react-chart-material-ui": "^2.7.3",
@@ -40,7 +40,7 @@
     "geojson-world-map": "0.0.2",
     "include-media": "^1.4.9",
     "leaflet": "^1.7.1",
-    "node-sass": "^4.14.1",
+    "sass": "^1.70.0",
     "numeral": "^2.0.6",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.10.0",
@@ -57,10 +57,15 @@
     "styled-loaders-react": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"

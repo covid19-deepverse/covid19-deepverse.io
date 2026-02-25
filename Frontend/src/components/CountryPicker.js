@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NativeSelect, FormControl } from '@material-ui/core';
-// import styles from '../assets/css/CountryPicker.module.css';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -10,8 +9,6 @@ const useStyles = makeStyles({
     borderRadius: 2,
     border: 0,
     color: 'white',
-    //padding: '0 30px',
-    //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
   },
   label: {
     textTransform: 'capitalize',
@@ -24,23 +21,19 @@ const CountryPicker = ({ handleCountryChange }) => {
   const [fetchedCountries, setFetchCountried] = useState([]);
   const classes = useStyles();
 
-  const fetchCountries = async () => {
-    try {
-      const {
-        data: { countries },
-      } = await axios.get('/country');
-
-      return countries.map((country) => country.name);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
     const fetchAPI = async () => {
-      setFetchCountried(await fetchCountries());
+      try {
+        const { data } = await axios.get(
+          'https://disease.sh/v3/covid-19/countries?sort=cases'
+        );
+        setFetchCountried(data.map((country) => country.country));
+      } catch (error) {
+        console.error('Failed to fetch countries list:', error);
+      }
     };
     fetchAPI();
-  }, [setFetchCountried]);
+  }, []);
 
   return (
     <div className="country-picker">

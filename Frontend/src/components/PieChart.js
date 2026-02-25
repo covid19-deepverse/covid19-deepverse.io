@@ -2,28 +2,23 @@ import React from 'react';
 import { Pie } from '@reactchartjs/react-chart.js';
 import axios from 'axios';
 
-
 export default class PieChart extends React.Component {
   state = {
     DataforDonut: [],
   };
+
   async componentDidMount() {
     try {
-      const fetchdata = await axios.get('/getCountry');
-      // this.setState({data:fetchdata.data});
-   
-
-      const dataset = [
-      fetchdata.data.confirmed.value ,
-       fetchdata.data.recovered.value ,
-     fetchdata.data.deaths.value 
-      ];
-
-      // console.log(dataset);
-      this.setState({ DataforDonut: dataset });
-    } catch (error) {}
+      const { data } = await axios.get('https://disease.sh/v3/covid-19/all');
+      this.setState({
+        DataforDonut: [data.cases, data.recovered, data.deaths],
+      });
+    } catch (error) {
+      console.error('Failed to fetch global data:', error);
+    }
   }
-  render(){
+
+  render() {
     const { DataforDonut } = this.state;
 
     const data = {
@@ -46,17 +41,15 @@ export default class PieChart extends React.Component {
         },
       ],
     };
-    return(
+    return (
       <>
-      <div className="header">
-        <h1 className="title">
-          Distribution of cases : <strong>World</strong>
-        </h1>
-      </div>
-      <Pie data={data} />
-    </>
-    )
- 
-}}
-
-
+        <div className="header">
+          <h1 className="title">
+            Distribution of cases : <strong>World</strong>
+          </h1>
+        </div>
+        <Pie data={data} />
+      </>
+    );
+  }
+}
